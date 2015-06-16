@@ -22,16 +22,19 @@ body {
 a {
 	color: @grey;
 	text-decoration: none;
+	
+	&:focus {
+		outline: 0;
+		color: @grey;
+		text-decoration: none;
+	}
+	&:active {
+		color: @grey;
+		text-decoration: none;
+	}
 	&:hover {
 		text-decoration: none;
 		color: @red;
-	}
-	&:focus {
-		outline: 0;
-	}
-	&:active {
-		color: #fff;
-		text-decoration: none;
 	}
 }
 h1, 
@@ -113,7 +116,9 @@ ul {
 	padding: 25px;
 }
 .header {
-	background: @grey;
+	&__main {
+		background: @grey;
+	}
 }
 .main-logo {
 	width: 220px;
@@ -131,14 +136,13 @@ ul {
 	vertical-align: top;
 	float: right;
 	background: @grey;
-	margin: -25px 30px -25px 0;
+	margin: -25px 20px -25px 0;
 	@media @tablet {
 		display: none;
 	}
 	&__item {
 		display: inline-block;
 		vertical-align: top;
-		
 		border-left: 1px solid #2a2d2d;
 		position: relative;
 		& a {
@@ -163,7 +167,7 @@ ul {
 			}
 			& a {
 				width: 80px;
-				height: 80px;
+				height: 82px;
 			}
 		}
 		&:hover ul {
@@ -178,11 +182,14 @@ ul {
 		list-style: none;
 		left: 0;
     z-index: 9999;
-    & li a {
-    	width: 130px;
-    	padding: 10px 27px;
-    	height: auto;
-    	border-top: 1px solid #2a2d2d;
+    border: 1px solid #2a2d2d;
+    & li {
+    	border-bottom: 1px solid #2a2d2d;
+    	& a {
+    		width: 130px;
+	    	padding: 10px 27px;
+	    	height: auto;
+    	}
     }
 	}
 	&_ham {
@@ -194,9 +201,9 @@ ul {
 		max-height: 0;
 		border: 1px solid #2a2d2d;
 		border-bottom: none;
-		border-top: none;
 		overflow: hidden;
 		width: 100%;
+		z-index: 9999;
 		.transition(max-height, .5s, cubic-bezier(0, 1.05, 0, 1));
 		@media @tablet {
 			display: block;
@@ -220,7 +227,7 @@ ul {
 .contact-phone {
 	display: inline-block;
 	vertical-align: top;
-	margin-right: 30px;
+	margin-right: 20px;
 	float: right;
 	@media @mobile {
 		display: none;
@@ -228,12 +235,12 @@ ul {
 	& p {
 		color: #fff;
 		font-size: 14px;
-		line-height: 14px;
+		line-height: 13px;
 		& span {
 			color: #5e6464;
 		}
 		&:first-child {
-			margin-bottom: 5px;
+			margin-bottom: 6px;
 		}
 	}
 	&_menu {
@@ -251,7 +258,7 @@ ul {
 	border-left: 1px solid #2a2d2d;
 	float: right;
 	width: 80px;
-	height: 80px;
+	height: 82px;
 	margin: -25px -25px -25px 0;
 	&:hover {
 		background: #141414;
@@ -270,7 +277,7 @@ ul {
 }
 .ham-btn {
 	width: 80px;
-	height: 80px;
+	height: 82px;
 	border-left: 1px solid #2a2d2d;
 	float: right;
 	display: none;
@@ -280,6 +287,148 @@ ul {
 	}
 	@media @tablet {
 		display: block;
+	}
+}
+.catalog-menu {
+	background: #f5f6f6;
+	& ul {
+		text-align: justify;
+		line-height: 0;
+		&:after {
+			content: '';
+			display: inline-block;
+			vertical-align: top;
+			width: 100%;
+			height: 0px;
+		}
+		@media @small {
+			text-align: left;
+		}
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		line-height: 20px;
+		position: relative;
+		padding-top: 45px;
+		@media @small {
+			width: 24%;
+			margin-bottom: 20px;
+		}
+		& a:before {
+			content: '';
+			margin: 0 auto;
+			display: block;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			position: absolute;
+			background: #000;
+			background: url('../../f/i/catalog-icons.png') -9999px -9999px no-repeat;
+		}
+		&_1 {
+			& a {
+				&:before {
+					width: 46px;
+					height: 32px;
+					background-position: 0 0;
+				}
+				&:hover:before {
+					background-position: 0 -48px;
+				}
+			}
+		}
+		&_2 {
+			& a {
+				&:before {
+					width: 52px;
+					height: 34px;
+					background-position: -46px 0;
+				}
+				&:hover:before {
+					background-position: -46px -48px;
+				}
+			}
+		}
+		&_3 {
+			& a {
+				&:before {
+					width: 34px;
+					height: 48px;
+					top: -10px;
+					background-position: -98px 0;
+				}
+				&:hover:before {
+					background-position: -98px -48px;
+				}
+			}
+		}
+		&_4 {
+			& a {
+				&:before {
+					width: 49px;
+					height: 24px;
+					top:  10px;
+					background-position: -132px 0;
+				}
+				&:hover:before {
+					background-position: -132px -48px;
+				}
+			}
+		}
+		&_5 {
+			& a {
+				&:before {
+					width: 50px;
+					height: 26px;
+					top: 5px;
+					background-position: -181px 0;
+				}
+				&:hover:before {
+					background-position: -181px -48px;
+				}
+			}
+		}
+		&_6 {
+			& a {
+				&:before {
+					width: 45px;
+					height: 30px;
+					top: 5px;
+					background-position: -231px 0;
+				}
+				&:hover:before {
+					background-position: -231px -48px;
+				}
+			}
+		}
+		&_7 {
+			& a {
+				&:before {
+					width: 35px;
+					height: 32px;
+					top: 5px;
+					background-position: -276px 0;
+				}
+				&:hover:before {
+					background-position: -276px -48px;
+				}
+			}
+		}
+		&_8 {
+			& a {
+				&:before {
+					width: 24px;
+					height: 38px;
+					background-position: -311px 0;
+				}
+				&:hover:before {
+					background-position: -311px -48px;
+				}
+			}
+		}
 	}
 }
 .footer {  
