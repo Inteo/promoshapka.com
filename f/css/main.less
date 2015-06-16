@@ -1,0 +1,291 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+@grey: #232323;
+@red: #f50009;
+.transition (@prop: all, @time: 1s, @ease: linear) {
+  -webkit-transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -o-transition: @prop @time @ease;
+  -ms-transition: @prop @time @ease;
+  transition: @prop @time @ease;
+}
+@small: ~"(max-width: 1199px)";
+@tablet: ~"(max-width: 991px)";
+@mobile: ~"(max-width: 767px)";
+body {
+	font: 16px/30px 'PT Sans', sans-serif;
+	color: @grey;
+}
+a {
+	color: @grey;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+		color: @red;
+	}
+	&:focus {
+		outline: 0;
+	}
+	&:active {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+h1, 
+h2 {
+	font: 500 50px/60px 'Roboto', sans-serif;
+	color: @grey;
+	margin: 0;
+}
+h2 {
+	font-size: 30px;
+}
+p {
+	line-height: 30px;
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+[class^='iconize-'], [class*=' iconize-'] {
+  position: relative;
+  display: inline-block;
+}
+[class^='iconize-']:before, [class*=' iconize-']:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  background: url('../../f/i/icons.png') -9999px -9999px no-repeat;
+}
+.iconize-cart:before {
+	width: 35px;
+	height: 32px;
+	background-position: 0 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 5px;
+	margin: auto;
+}
+.iconize-ham:before {
+	width: 23px;
+	height: 15px;
+	background-position: -35px 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.iconize-more:before {
+	width: 22px;
+	height: 4px;
+	background-position: -35px -15px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.wrap {  
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 0 -330px 0;
+	padding: 0;  
+	min-width: 480px;
+	&:after {  
+		content: '';
+		height: 330px;
+	  margin: 0;
+	  padding: 0; 
+	} 
+}
+.holder {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 25px;
+}
+.header {
+	background: @grey;
+}
+.main-logo {
+	width: 220px;
+	display: inline-block;
+	vertical-align: top;
+	& a {
+		display: block;
+	}
+	&__img {
+		width: 100%;
+	}
+}
+.main-menu {
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+	background: @grey;
+	margin: -25px 30px -25px 0;
+	@media @tablet {
+		display: none;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		
+		border-left: 1px solid #2a2d2d;
+		position: relative;
+		& a {
+			font-size: 14px;
+			color: #fff;
+			display: block;
+			padding: 25px 27px;
+			&:hover {
+				background: #141414;
+				color: @red;
+			}
+		}
+		&_hide {
+			@media @small {
+				display: none;
+			}
+		}
+		&_more {
+			display: none;
+			@media @small {
+				display: inline-block;
+			}
+			& a {
+				width: 80px;
+				height: 80px;
+			}
+		}
+		&:hover ul {
+			display: block;
+		}
+	}
+	& ul {
+		display: none;
+		position: absolute;
+		top: 80px;
+		background: @grey;
+		list-style: none;
+		left: 0;
+    z-index: 9999;
+    & li a {
+    	width: 130px;
+    	padding: 10px 27px;
+    	height: auto;
+    	border-top: 1px solid #2a2d2d;
+    }
+	}
+	&_ham {
+		clear: both;
+		float: left;
+		display: none;
+		position: absolute;
+		margin: 25px 0 0 -25px;
+		max-height: 0;
+		border: 1px solid #2a2d2d;
+		border-bottom: none;
+		border-top: none;
+		overflow: hidden;
+		width: 100%;
+		.transition(max-height, .5s, cubic-bezier(0, 1.05, 0, 1));
+		@media @tablet {
+			display: block;
+		}
+		& li {
+			display: block;
+			margin: 0;
+			border-left: none;
+			border-bottom: 1px solid #2a2d2d;
+			
+			& a {
+				padding: 10px 15px;
+			}
+		}
+		&.active {
+			max-height: 1000px;
+			.transition(max-height, 1s, ease);
+		}
+	}
+}
+.contact-phone {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 30px;
+	float: right;
+	@media @mobile {
+		display: none;
+	}
+	& p {
+		color: #fff;
+		font-size: 14px;
+		line-height: 14px;
+		& span {
+			color: #5e6464;
+		}
+		&:first-child {
+			margin-bottom: 5px;
+		}
+	}
+	&_menu {
+		float: none;
+		display: none;
+		padding: 20px 15px;
+		@media @mobile {
+			display: block;
+		}
+	}
+}
+.cart-btn {
+	display: inline-block;
+	vertical-align: top;
+	border-left: 1px solid #2a2d2d;
+	float: right;
+	width: 80px;
+	height: 80px;
+	margin: -25px -25px -25px 0;
+	&:hover {
+		background: #141414;
+	}
+	& span {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0 5px;
+		line-height: 20px;
+		background: @red;
+		color: #fff;
+		text-align: center;
+		font-size: 14px;
+	}
+}
+.ham-btn {
+	width: 80px;
+	height: 80px;
+	border-left: 1px solid #2a2d2d;
+	float: right;
+	display: none;
+	margin: -25px 0 -25px 0;
+	&:hover {
+		background: #141414;
+	}
+	@media @tablet {
+		display: block;
+	}
+}
+.footer {  
+	height: 330px;
+  margin: 0;
+  padding: 0;
+	background: @grey;
+	min-width: 480px;
+}
