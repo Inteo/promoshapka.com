@@ -54,6 +54,58 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+.form-control::-moz-placeholder {
+  color: @grey;
+  font: 700 16px/30px 'Roboto', sans-serif;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: @grey;
+  font: 700 16px/30px 'Roboto', sans-serif;
+}
+.form-control::-webkit-input-placeholder {
+  color: @grey;
+  font: 700 16px/30px 'Roboto', sans-serif;
+}
+.input {
+	height: 50px;
+	border-radius: 0;
+	border: none;
+	box-shadow: none !important;
+	padding: 10px 20px;
+	color: @grey;
+  font: 500 16px/30px 'Roboto', sans-serif;
+	&:focus {
+		border: 2px solid @grey;
+		border-right: none;
+		padding: 8px 18px;
+	}
+}
+.btn {
+	height: 50px;
+	background: @grey;
+	font: 700 16px/35px 'Roboto', sans-serif;
+	color: #fff;
+	border-radius: 0;
+	margin: 0 !important;
+	padding: 6px 20px;
+	&:hover {
+		color: #fff;
+		background: @red;
+	}
+	&:focus {
+		color: #fff;
+	}
+}
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  vertical-align: middle;
+  background-image: url("../../f/i/icons.png");
+  background-repeat: no-repeat;
+}
 [class^='iconize-'], [class*=' iconize-'] {
   position: relative;
   display: inline-block;
@@ -96,6 +148,38 @@ ul {
 	right: 0;
 	margin: auto;
 }
+.icon-search {
+	width: 26px;
+	height: 26px;
+	background-position: -58px 0;
+	margin: -2px 15px 0 -3px;
+}
+a:hover .icon-search,
+button:hover .icon-search {
+	background-position: -84px 0;
+}
+.icon-mail {
+	width: 23px;
+	height: 18px;
+	background-position: -110px 0;
+	margin: 0 15px 0 0;
+}
+a:hover .icon-mail {
+	background-position: -133px 0;
+}
+.iconize-close:before {
+	width: 10px;
+	height: 11px;
+	background-position: -35px -20px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.iconize-close:hover:before {
+	background-position: -44px -20px;
+}
 .wrap {  
 	min-height: 100%;
 	height: auto !important;
@@ -114,6 +198,7 @@ ul {
 	max-width: 1600px;
 	margin: 0 auto;
 	padding: 25px;
+	position: relative;
 }
 .header {
 	&__main {
@@ -291,6 +376,7 @@ ul {
 }
 .catalog-menu {
 	background: #f5f6f6;
+	min-height: 135px;
 	& ul {
 		text-align: justify;
 		line-height: 0;
@@ -429,6 +515,152 @@ ul {
 				}
 			}
 		}
+	}
+}
+.catalog-search {
+	float: right;
+	width: 0;
+	overflow: hidden;
+	padding: 17px 0;
+	&.active {
+		width: 100%;
+		.transition(width, .5s, ease);
+	}
+	&-close {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		width: 10px;
+		height: 11px;
+		display: block;
+		cursor: pointer;
+		z-index: 100;
+		display: none;
+	}
+}
+.navbar-form {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.input-group-btn {
+	width: 1% !important;
+}
+
+.search-input {
+	overflow: hidden;
+}
+.search-submit {
+	float: right;
+}
+.achievements {
+	background: #f5f6f6;
+	@media @mobile {
+		display: none;
+	}
+	&__holder {
+		padding: 25px 0;
+		text-align: justify;
+		line-height: 0px;
+		&:after {
+			display: inline-block;
+			vertical-align: top;
+			content: '';
+			height: 0;
+			width: 100%;
+		}
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		&:last-child {
+			@media @tablet {
+				display: none;
+			}
+		}
+	}
+	&__num {
+		display: inline-block;
+		vertical-align: top;
+		font: 300 50px/50px 'Roboto', sans-serif;
+		color: @red;
+		margin-right: 10px;
+	}
+	&__descr {
+		display: inline-block;
+		vertical-align: top;
+		line-height: 20px;
+		padding-top: 3px;
+		& span {
+			color: @red;
+		}
+	}
+}
+.main-banner {
+	height: 600px;
+	overflow: hidden;
+	position: relative;
+	&__slide {
+		width: 100%;
+	}
+	&__back {
+		&:after {
+			content: '';
+			height: 600px;
+			width: 100%;
+			background: #fff;
+			opacity: .5;
+			display: block;
+			z-index: 1;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		& img {
+			width: 1920px;
+			position: absolute;
+			left: 50%;
+			margin-left: -960px;
+		}
+	}
+	&__holder {
+		padding-top: 80px;
+		position: relative;
+		z-index: 2;
+	}
+	&__img {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		height: 550px;
+		text-align: center;
+		padding-top: 20px;
+		& img {
+			display: inline-block;
+			vertical-align: top;
+		}
+		@media @tablet {
+			display: none;
+		}
+	}
+	&__content {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		padding-right: 50px;
+		@media @tablet {
+			width: 100%;
+		}
+	}
+	&__title {
+		font: 500 50px/60px 'Roboto', sans-serif;
+		margin-bottom: 30px;
+		@media @mobile {
+			font-size: 45px;
+		}
+	}
+	&__text {
+		margin-bottom: 40px;
 	}
 }
 .footer {  
