@@ -20,20 +20,39 @@
     <script src="f/js/jquery-1.11.3.min.js"></script>
     <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <link rel="stylesheet" href="f/css/bootstrap.min.css">
+    <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <script src="f/js/bootstrap.min.js"></script>
+    <script src="f/js/packery.pkgd.min.js"></script>
+    <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
     <link rel="stylesheet" href="f/css/main.css">
     <script src="f/js/common.js"></script>
     <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=all" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=all' rel='stylesheet' type='text/css'>
     <script>
       $(document).ready(function(){
-        $('.main-banner').carouFredSel({
-          items               : 1,
-          direction           : "left",
-          scroll : {
-              items           : 1,
-              duration        : 1000,
-              pauseOnHover    : true
+        $('.main-banner__wrap').carouFredSel({
+          responsive: true,
+          pagination: '.main-banner__pager',
+          scroll: {
+            duration: 450,
+            timeoutDuration: 5500,
+            fx: 'fade'
+          }
+        });
+        var carousel = $('.news__holder');
+        carousel.carouFredSel({
+          responsive: true,
+          prev: '.news__prev',
+          next: '.news__next',
+          scroll: {
+            duration: 450,
+            timeoutDuration: 3500,
+            fx: 'fade'
+          },
+          onCreate: function () {
+            $(window).on('resize', function () {
+              carousel.parent().add(carousel).height(carousel.children().first().height());
+            }).trigger('resize');
           }
         });
       });
@@ -109,34 +128,37 @@
     </header>
     <div class="content">
       <div class="main-banner">
-        <div class="main-banner__slide">
-          <div class="main-banner__back">
-            <img src="f/i/main-slider/back1.jpg" alt="">
+        <div class="main-banner__wrap">
+           <div class="main-banner__slide">
+            <div class="main-banner__back">
+              <img src="f/i/main-slider/back1.jpg" alt="">
+            </div>
+            <div class="holder main-banner__holder">
+              <div class="main-banner__img">
+                <img src="f/i/main-slider/img1.png" alt="">
+              </div><div class="main-banner__content">
+                <p class="main-banner__title">Персонализация <br> и кастомизация продукции</p>
+                <p class="main-banner__text">Любая наша продукция может быть модифицирована в соответствии с вашими желаниями и требованиями любым способом (вышивка, гравировка, печать, шелкография, стразы). Выбор способа нанесения зависит от бюджета и вида ткани для нанесения.</p>
+                <a href="#request" class="btn modal-inline"><i class="icon-mail"></i>Отправить заявку</a>
+              </div>
+            </div>
           </div>
-          <div class="holder main-banner__holder">
-            <div class="main-banner__img">
-              <img src="f/i/main-slider/img1.png" alt="">
-            </div><div class="main-banner__content">
-              <p class="main-banner__title">Персонализация <br> и кастомизация продукции</p>
-              <p class="main-banner__text">Любая наша продукция может быть модифицирована в соответствии с вашими желаниями и требованиями любым способом (вышивка, гравировка, печать, шелкография, стразы). Выбор способа нанесения зависит от бюджета и вида ткани для нанесения.</p>
-              <a href="#" class="btn"><i class="icon-mail"></i>Отправить заявку</a>
+          <div class="main-banner__slide">
+            <div class="main-banner__back">
+              <img src="f/i/main-slider/back2.jpg" alt="">
+            </div>
+            <div class="holder main-banner__holder">
+              <div class="main-banner__img">
+                <img src="f/i/main-slider/img2.png" alt="">
+              </div><div class="main-banner__content">
+                <p class="main-banner__title">Мы осуществляем комплексный <br>пошив одежды</p>
+                <p class="main-banner__text">В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
+                <a href="#request" class="btn modal-inline"><i class="icon-mail"></i>Отправить заявку</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="main-banner__slide">
-          <div class="main-banner__back">
-            <img src="f/i/main-slider/back2.jpg" alt="">
-          </div>
-          <div class="holder main-banner__holder">
-            <div class="main-banner__img">
-              <img src="f/i/main-slider/img2.png" alt="">
-            </div><div class="main-banner__content">
-              <p class="main-banner__title">>Мы осуществляем комплексный <br>пошив одежды</p>
-              <p class="main-banner__text"В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
-              <a href="#" class="btn"><i class="icon-mail"></i>Отправить заявку</a>
-            </div>
-          </div>
-        </div>
+        <div class="main-banner__pager"></div>
       </div>
       <div class="achievements">
         <div class="holder">
@@ -168,10 +190,203 @@
           </div>
         </div> 
       </div>
+      <div class="our-product">
+        <div class="holder">
+          <p class="our-product__title">Наша продукция</p>
+          <p class="our-product__text">Вся наша продукция соответствует высокому уровню качества, что подтверждено</p>
+          <a href="#" class="our-product__declare">Декларацией о соответствии Таможенного союза.</a>
+        </div> 
+      </div>
+      <div class="holder">
+        <div class="catalog">
+          <div class="catalog__item catalog__item_40 catalog__item_1">
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/1.png" alt=""></span>
+              <span class="catalog__title">Спецодежда</span>
+              <span class="catalog__text">Большой выбор летней и зимней спецодежды из огнестойких и антистатических тканей, одежды для обслуживающего и медицинского персонала, а так же одежда для охранных структур</span>
+            </a>
+          </div><div class="catalog__item catalog__item_40 catalog__item_40-20 catalog__item_2">
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/2.png" alt=""></span>
+              <span class="catalog__title">Форменная одежда</span>
+              <span class="catalog__text">Большой выбор формы для Военных сил РФ и различных структурных подразделений.</span>
+            </a>
+          </div><div class="catalog__item catalog__item_40 catalog__item_40-20 catalog__item_3">
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/3.png" alt=""></span>
+              <span class="catalog__title">Одежда нефтегазового сектора</span>
+              <span class="catalog__text">Различные прочные, надежные и огнестойкие костюмы.</span>
+            </a>
+          </div><div class="catalog__item catalog__item_40 catalog__item_40-20 catalog__item_4">
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/4.png" alt=""></span>
+              <span class="catalog__title">Рекламная одежда</span>
+              <span class="catalog__text">Мы выполняем пошив любой одежды для мероприятий и рекламных акций.</span>
+            </a>
+          </div><div class="catalog__item catalog__item_20-40 catalog__item_5">
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/6.png" alt=""></span>
+              <span class="catalog__title">Сувенирная продукция</span>
+              <span class="catalog__text">Фанатская атрибутика и праздничная продукция на любой вкус.</span>
+            </a>
+          </div><div class="catalog__item catalog__item_40 catalog__item_40-20">
+            <a href="#" class="catalog__item-content">
+              <img src="f/i/catalog-img/misc.png" alt="" class="catalog__back">
+              <span class="catalog__img"><img src="f/i/catalog-img/5.png" alt=""></span>
+              <span class="catalog__title">Праздничные скидки 1-9 мая</span>
+              <span class="catalog__text">Мы устанавливаем новые цены на всю сувенирную продукцию военной тематики.</span>
+            </a>
+          </div><div class="catalog__item catalog__item_small catalog__item_6"> 
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/7.png" alt=""></span>
+              <span class="catalog__title">Одежда для активного отдыха</span>
+            </a>
+          </div><div class="catalog__item catalog__item_small catalog__item_7"> 
+            <a href="#" class="catalog__item-content">
+              <span class="catalog__img"><img src="f/i/catalog-img/8.png" alt=""></span>
+              <span class="catalog__title">Текстиль</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="news">
+        <div class="holder">
+          <div class="news__wrap"> 
+            <div class="news__holder"> 
+              <div class="news__slide clearfix">
+                <div class="news__img">
+                  <img src="f/i/news.png" alt="">
+                </div><div class="news__content">
+                  <p class="news__title"><a href="#">Выставка «Спорт 2015»</a></p>
+                  <p class="news__text">С 15 июня швейная фабрика «Promoshapka» участвует в Х международной специализированной выставке «Спорт» в  г. Москва, ВВЦ. Нашу продукцию можно найти в павильоне №75, стенд А2-2. Приглашаем посетить наш стенд, где можно ознакомиться с продукцией фабрики и получить консультации наших специалистов.</p>
+                </div>
+              </div>
+              <div class="news__slide clearfix">
+                <div class="news__img">
+                  <img src="f/i/news.png" alt="">
+                </div><div class="news__content">
+                  <p class="news__title"><a href="#">Выставка «Спорт 2015»</a></p>
+                  <p class="news__text">С 15 июня швейная фабрика «Promoshapka» участвует в Х международной специализированной выставке «Спорт» в  г. Москва, ВВЦ. Нашу продукцию можно найти в павильоне №75, стенд А2-2. Приглашаем посетить наш стенд, где можно ознакомиться с продукцией фабрики и получить консультации наших специалистов.</p>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="news__prev"></a>
+            <a href="#" class="news__next"></a>
+          </div>  
+        </div>
+      </div>
     </div>
   </div> 
   <footer class="footer">
-    
+    <div class="holder footer__holder">
+      <div class="footer__wrap">
+        <div class="footer__row">
+          <div class="footer__cell">
+            <p class="footer__title"><a href="#">О компании</a></p>
+            <ul class="footer__menu">
+              <li><a href="#">Производство</a></li>
+              <li><a href="#">Лицензии и сертификаты</a></li>
+            </ul>
+          </div>
+          <div class="footer__cell">
+            <p class="footer__title"><a href="#">Каталог</a></p>
+            <ul class="footer__menu">
+              <li><a href="#">Спецодежда</a></li>
+              <li><a href="#">Форменная одежда</a></li>
+              <li><a href="#">Одежда нефтегазового сектора</a></li>
+              <li><a href="#">Рекламная одежда</a></li>
+              <li><a href="#">Одежда для активного отдыха</a></li>
+              <li><a href="#">Сувенирная продукция</a></li>
+              <li><a href="#">Текстиль</a></li>
+            </ul>
+          </div>
+          <div class="footer__cell">
+            <p class="footer__title"><a href="#">Услуги</a></p>
+            <ul class="footer__menu">
+              <li><a href="#">Вышивка</a></li>
+              <li><a href="#">Печать</a></li>
+              <li><a href="#">Объемный кант</a></li>
+              <li><a href="#">Гравировка</a></li>
+              <li><a href="#">Жаккардовая этикетка</a></li>
+              <li><a href="#">Индивидуальная упаковка</a></li>
+            </ul>
+          </div>
+          <div class="footer__cell">
+            <p class="footer__title"><a href="#">Спецпредложения</a></p>
+            <ul class="footer__menu">
+              <li><a href="#">Новый год</a></li>
+              <li><a href="#">23 февраля</a></li>
+              <li><a href="#">8 марта</a></li>
+              <li><a href="#">Выпускной</a></li>
+            </ul>
+          </div>
+          <div class="footer__cell">
+            <p class="footer__title"><a href="#">Контакты</a></p>
+            <div class="contact-phone contact-phone__footer">
+              <p><span>(4852)</span> 44-81-91</p>
+              <p><span>(4852)</span> 44-81-62</p>
+            </div>
+          </div>
+          <div class="footer__cell">
+            <div class="developer">
+              <div class="developer__wrap">
+                <p>Создание сайта</p>
+                <a target="_blank" rel="external nofollow" href="http://inteo-s.ru">
+                  <span class="icon-inteo"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer> 
+  <div class="popups">
+    <div class="popup" id="request">
+      <p class="popup__title">Отправить заявку</p>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-6">
+            <input type="text" class="form-control input" id="Name" placeholder="Ваше имя">
+          </div>
+          <div class="col-xs-6">
+            <input type="text" class="form-control input" id="Phone" placeholder="Телефон">
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <div class="col-xs-6">
+            <input type="text" class="form-control input" id="Email" placeholder="Электронная почта">
+          </div>
+          <div class="col-xs-6">
+            <input type="text" class="form-control input" id="Company" placeholder="Организация">
+            <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Введите фамилию">
+            <span class="icon-ok form-control-feedback"></span>  -->
+            <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Введите фамилию">
+            <span class="icon-remove form-control-feedback"></span> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <textarea rows="3" class="form-control input" id="Comments" placeholder="Комментарий к заказу"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <div class="add">
+              <a href="#" ><i class="icon-plus"></i>Прикрепить реквизиты</a>
+            </div>
+            <p class="requisition"><i class="icon-requisition"></i>Реквизиты компании <span>(.doc, 25Кб)</span><a href="#" class="iconize-close requisition__close"></a></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="popup__btn">
+            <button class="btn" type="submit"><i class="icon-mail"></i>Отправить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
