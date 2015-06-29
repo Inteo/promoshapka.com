@@ -15,6 +15,7 @@ html, body {
 @small: ~"(max-width: 1199px)";
 @tablet: ~"(max-width: 991px)";
 @mobile: ~"(max-width: 767px)";
+@old: ~"(max-width: 479px)";
 body {
 	font: 16px/30px 'PT Sans', sans-serif;
 	color: @grey;
@@ -281,7 +282,7 @@ a:hover .icon-inteo {
 	height: 100%;
 	margin: 0 0 -330px 0;
 	padding: 0;  
-	min-width: 480px;
+	min-width: 320px;
 	&:after {  
 		content: '';
 		height: 330px;
@@ -298,12 +299,19 @@ a:hover .icon-inteo {
 .header {
 	&__main {
 		background: @grey;
+		min-height: 82px;
+		& .holder {
+			max-width:2000px;
+		}
 	}
 }
 .main-logo {
 	width: 220px;
 	display: inline-block;
 	vertical-align: top;
+	@media @old {
+		width: 45%;
+	}
 	& a {
 		display: block;
 	}
@@ -485,6 +493,9 @@ a:hover .icon-inteo {
 	& ul {
 		text-align: justify;
 		line-height: 0;
+		@media @small {
+			margin-bottom: -20px;
+		}
 		&:after {
 			content: '';
 			display: inline-block;
@@ -507,6 +518,14 @@ a:hover .icon-inteo {
 			width: 24%;
 			margin-bottom: 20px;
 		}
+		@media @old {
+			width: 32%;
+		}
+		& a {
+			@media @old {
+				font-size: 14px;
+			}
+		}
 		& a:before {
 			content: '';
 			margin: 0 auto;
@@ -519,7 +538,7 @@ a:hover .icon-inteo {
 			background: #000;
 			background: url('../../f/i/catalog-icons.png') -9999px -9999px no-repeat;
 		}
-		&_1 {
+		&_coveralls {
 			& a {
 				&:before {
 					width: 46px;
@@ -531,7 +550,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_2 {
+		&_uniform {
 			& a {
 				&:before {
 					width: 52px;
@@ -543,7 +562,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_3 {
+		&_oil {
 			& a {
 				&:before {
 					width: 34px;
@@ -556,7 +575,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_4 {
+		&_promo {
 			& a {
 				&:before {
 					width: 49px;
@@ -569,7 +588,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_5 {
+		&_leisure {
 			& a {
 				&:before {
 					width: 50px;
@@ -582,7 +601,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_6 {
+		&_souvenirs {
 			& a {
 				&:before {
 					width: 45px;
@@ -595,7 +614,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_7 {
+		&_textile {
 			& a {
 				&:before {
 					width: 35px;
@@ -608,7 +627,7 @@ a:hover .icon-inteo {
 				}
 			}
 		}
-		&_8 {
+		&_search {
 			& a {
 				&:before {
 					width: 24px;
@@ -626,9 +645,11 @@ a:hover .icon-inteo {
 	float: right;
 	width: 0;
 	overflow: hidden;
-	padding: 17px 0;
+	height: 0;
 	&.active {
 		width: 100%;
+		padding: 17px 0;
+		height: auto;
 		.transition(width, .5s, ease);
 	}
 	&-close {
@@ -705,6 +726,7 @@ a:hover .icon-inteo {
 	height: 600px;
 	overflow: hidden;
 	position: relative;
+	width: 100%;
 	&__slide {
 		height: 600px;
 	}
@@ -788,9 +810,17 @@ a:hover .icon-inteo {
 			line-height: 50px;
 			margin-bottom: 20px;
 		}
+		@media @old {
+			font-size: 30px;
+			line-height: 35px;
+		}
 	}
 	&__text {
 		margin-bottom: 40px;
+		@media @old {
+			font-size: 14px;
+			line-height: 25px;
+		}
 	}
 }
 .our-product {
@@ -799,6 +829,10 @@ a:hover .icon-inteo {
 	&__title {
 		font: 500 50px/60px 'Roboto', sans-serif;
 		margin-bottom: 30px;
+		@media @old {
+			font-size: 40px;
+			line-height: 50px;
+		}
 	}
 	&__declare {
 		color: @red;
@@ -812,7 +846,7 @@ a:hover .icon-inteo {
 		padding: 20px 60px;
 	}
 	&__slide {
-		width: 100%;
+		overflow: hidden;
 	}
 	&__img {
 		margin-right: 60px;
@@ -830,6 +864,10 @@ a:hover .icon-inteo {
 	&__title {
 		font: 500 20px/30px 'Roboto', sans-serif;
 		margin-bottom: 10px;
+	}
+	&__text {
+		font-size: 14px;
+		line-height: 25px;
 	}
 	&__prev,
 	&__next {
@@ -890,8 +928,12 @@ a:hover .icon-inteo {
 		@media @tablet {
 			width: 50%;
 		}
+		@media @old {
+			width: 100%;
+		}
 		&-content {
 			background: #f1f3f3;
+			.transition(background-color, .5s, ease);
 			width: 100%;
 			display: block;
 			padding: 40px 40px 0 25px;
@@ -900,6 +942,9 @@ a:hover .icon-inteo {
 			z-index: 1;
 			&:hover {
 				color: @grey;
+			}
+			@media @old {
+				padding: 25px!important;
 			}
 			@media (max-width: 1100px) {
 				padding-top: 20px;
@@ -927,25 +972,25 @@ a:hover .icon-inteo {
 			line-height: 30px;
 			padding-right: 30%;
 		}
-		&_1 &-content:hover {
+		&_coveralls &-content:hover {
 			background: #d2d9e4;
 		}
-		&_2 &-content:hover {
+		&_uniform &-content:hover {
 			background: #dee3ca;
 		}
-		&_3 &-content:hover {
+		&_oil &-content:hover {
 			background: #b2d7fd;
 		}
-		&_4 &-content:hover {
+		&_promo &-content:hover {
 			background: #cbe7bc;
 		}
-		&_5 &-content:hover {
+		&_souvenirs &-content:hover {
 			background: #fdc2cb;
 		}
-		&_6 &-content:hover {
+		&_leisure &-content:hover {
 			background: #bcedf0;
 		}
-		&_7 &-content:hover {
+		&_textile &-content:hover {
 			background: #e1c8ff;
 		}
 	}
@@ -956,10 +1001,14 @@ a:hover .icon-inteo {
 		width: 100%;
 		top: 0;
 		left: 0;
-		display: none;
+		opacity: 0;
+		.transition(opacity, .5s, ease);
+		@media @old {
+			width: auto;
+		}
 	}
 	a:hover &__back {
-		display: block;
+		opacity: 1;
 	}
 	&__img {
 		position: absolute;
@@ -971,6 +1020,9 @@ a:hover .icon-inteo {
 		@media @small {
 			right: 70%;
 			width: 30%;
+		}
+		@media @old {
+			display: none;
 		}
 		& img {
 			min-height: 100%;
@@ -1006,6 +1058,11 @@ a:hover .icon-inteo {
 	&__title,
 	&__text {
 		display: block;
+	}
+	&__text {
+		@media @old {
+			font-size: 14px;
+		}
 	}
 	&__title {
 		font: 500 30px/40px 'Roboto', sans-serif;

@@ -4,18 +4,23 @@ function catalog_resize() {
 		$cont = $(this).find(".catalog__item-content");
 		$leftp = $(this).css("padding-left").replace("px", "");
 		$rightp = $cont.css("padding-right").replace("px", "");
-		if($(this).hasClass("catalog__item_40-20")) {
-			$cont.height($width/2-$leftp-$rightp);
-		}
-		else if($(this).hasClass("catalog__item_20-40")){
-			$cont.height($width*2-$rightp);
-		}
-		else if($(this).hasClass("catalog__item_40")){
+		if($(window).width() <= 480) {
 			$cont.height($width-$leftp-$rightp);
 		}
-		else if($(this).hasClass("catalog__item_small")){
-			$temp = $width*2-$leftp;
-			$cont.height($temp/2-$rightp);
+		else {
+			if($(this).hasClass("catalog__item_40-20")) {
+			$cont.height($width/2-$leftp-$rightp);
+			}
+			else if($(this).hasClass("catalog__item_20-40")){
+				$cont.height($width*2-$rightp);
+			}
+			else if($(this).hasClass("catalog__item_40")){
+				$cont.height($width-$leftp-$rightp);
+			}
+			else if($(this).hasClass("catalog__item_small")){
+				$temp = $width*2-$leftp;
+				$cont.height($temp/2-$rightp);
+			}
 		}
 	});
 }
