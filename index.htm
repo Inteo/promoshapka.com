@@ -32,8 +32,14 @@
           width: "100%",
           scroll: {
             duration: 450,
-            timeoutDuration: 5500,
-            fx: 'fade'
+            timeoutDuration: 9000,
+            fx: 'fade',
+            onAfter: function () {
+              document.querySelector('.main-banner__back video').play();
+            }
+          },
+          onCreate: function () {
+            document.querySelector('.main-banner__back video').play();
           }
         });
         var carousel = $('.news__holder');
@@ -131,6 +137,10 @@
            <div class="main-banner__slide">
             <div class="main-banner__back">
               <img src="f/i/main-slider/back1.jpg" alt="">
+              <video autoplay="autoplay" loop="loop">
+                <source type="video/mp4" src="f/video/MVI_9163.mp4" />
+                <source type="video/webm" src="f/video/MVI_9163.webm" />
+              </video>
             </div>
             <div class="holder main-banner__holder">
               <div class="main-banner__img">
@@ -145,6 +155,10 @@
           <div class="main-banner__slide">
             <div class="main-banner__back">
               <img src="f/i/main-slider/back2.jpg" alt="">
+              <video autoplay="autoplay" loop="loop">
+                <source type="video/mp4" src="f/video/MVI_9165.mp4" />
+                <source type="video/webm" src="f/video/MVI_9165.webm" />
+              </video>
             </div>
             <div class="holder main-banner__holder">
               <div class="main-banner__img">
