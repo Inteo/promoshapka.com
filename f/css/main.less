@@ -521,12 +521,18 @@ a:hover .icon-inteo {
 		@media @old {
 			width: 32%;
 		}
-		& a {
+		& a,
+		& p {
 			@media @old {
 				font-size: 14px;
 			}
 		}
-		& a:before {
+		& p {
+			color: #5e720c;
+			line-height: 20px;
+		}
+		& a:before,
+		& p:before {
 			content: '';
 			margin: 0 auto;
 			display: block;
@@ -539,7 +545,8 @@ a:hover .icon-inteo {
 			background: url('../../f/i/catalog-icons.png') -9999px -9999px no-repeat;
 		}
 		&_coveralls {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 46px;
 					height: 32px;
@@ -550,8 +557,18 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_coveralls {
+			& p {
+				color: #1f447e;
+				&:before,
+				&:hover:before {
+					background-position: 0 -96px;
+				}
+			}
+		}
 		&_uniform {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 52px;
 					height: 34px;
@@ -562,8 +579,17 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_uniform {
+			& p {
+				&:before,
+				&:hover:before {
+					background-position: -46px -96px;
+				}
+			}
+		}
 		&_oil {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 34px;
 					height: 48px;
@@ -575,8 +601,18 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_oil {
+			& p {
+				color: #003dae;
+				&:before,
+				&:hover:before {
+					background-position: -98px -96px;
+				}
+			}
+		}
 		&_promo {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 49px;
 					height: 24px;
@@ -588,8 +624,18 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_promo {
+			& p {
+				color: #308401;
+				&:before,
+				&:hover:before {
+					background-position: -132px -96px;
+				}
+			}
+		}
 		&_leisure {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 50px;
 					height: 26px;
@@ -601,8 +647,18 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_leisure {
+			& p {
+				color: #007e85;
+				&:before,
+				&:hover:before {
+					background-position: -181px -96px;
+				}
+			}
+		}
 		&_souvenirs {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 45px;
 					height: 30px;
@@ -614,8 +670,18 @@ a:hover .icon-inteo {
 				}
 			}
 		}
+		&_active&_souvenirs {
+			& p {
+				color: #930016;
+				&:before,
+				&:hover:before {
+					background-position: -231px -96px;
+				}
+			}
+		}
 		&_textile {
-			& a {
+			& a,
+			& p {
 				&:before {
 					width: 35px;
 					height: 32px;
@@ -624,6 +690,15 @@ a:hover .icon-inteo {
 				}
 				&:hover:before {
 					background-position: -276px -48px;
+				}
+			}
+		}
+		&_active&_textile {
+			& p {
+				color: #4a0e92;
+				&:before,
+				&:hover:before {
+					background-position: -276px -96px;
 				}
 			}
 		}
@@ -723,12 +798,43 @@ a:hover .icon-inteo {
 	}
 }
 .main-banner {
-	height: 600px;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	&__slide {
+	min-height: 500px;
+	&_slider,
+	&_slider &__slide {
 		height: 600px;
+	}
+	&_coveralls {
+		background: #d2d9e4;
+	}
+	&_uniform {
+		background: #dee3ca;
+	}
+	&_oil {
+		background: #b2d7fd;
+	}
+	&_promo {
+		background: #cbe7bc;
+	}
+	&_leisure {
+		background: #bcedf0;
+	}
+	&_souvenirs {
+		background: #fdc2cb;
+	}
+	&_textile {
+		background: #e1c8ff;
+	}
+	&__btn {
+		margin-right: 30px !important;
+		@media @small {
+			margin-bottom: 15px !important;
+		}
+	}
+	&__link {
+		display: inline-block;
 	}
 	&__back {
 		position: relative;
@@ -752,9 +858,14 @@ a:hover .icon-inteo {
 		}
 	}
 	&__holder {
-		padding-top: 80px;
+		padding-top: 70px;
 		position: relative;
 		z-index: 2;
+		padding-bottom: 40px;
+	}
+	&_slider &__holder {
+		padding-top: 80px;
+		padding-bottom: 0;
 	}
 	&__pager {
 		text-align: center;
@@ -780,26 +891,32 @@ a:hover .icon-inteo {
 		display: inline-block;
 		vertical-align: top;
 		width: 50%;
-		height: 550px;
-		text-align: center;
-		padding-top: 20px;
+		position: relative;
 		& img {
-			display: inline-block;
-			vertical-align: top;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: -20px;
+			margin: 0 auto;
 		}
 		@media @tablet {
 			display: none;
 		}
 	}
+	&_slider &__img img {
+		top: 20px;
+	}
 	&__content {
 		display: inline-block;
 		vertical-align: top;
 		width: 50%;
-		//padding-right: 50px;
 		@media @tablet {
 			width: 100%;
 			text-align: center;
-			//padding-right: 25px;
+		}
+		padding-right: 50px;
+		@media @tablet {
+			padding-right: 0;
 		}
 	}
 	&__title {
@@ -1175,9 +1292,11 @@ a:hover .icon-inteo {
 		margin-bottom: 25px;
 	}
 }
-.requisition {
+.ico-link {
 	font: 700 16px/30px 'Roboto', sans-serif;
 	color: #232323;
+	white-space: nowrap;
+	word-wrap: normal;
 	& span {
 		font-weight: normal;
 		margin-right: 10px;
