@@ -170,6 +170,32 @@ ul {
   content: '';
   background: url('../../f/i/icons.png') -9999px -9999px no-repeat;
 }
+.icon-summer {
+	width: 26px;
+	height: 26px;
+	background-position: 0 -67px;
+	margin-right: 15px;
+	margin-top: -2px;
+}
+a:hover .icon-summer {
+	background-position: -26px -67px;
+}
+.filter__btn_active .icon-summer {
+	background-position: -52px -67px;
+}
+.icon-winter {
+	width: 24px;
+	height: 22px;
+	background-position: -78px -69px;
+	margin-right: 15px;
+	margin-top: -2px;
+}
+a:hover .icon-winter {
+	background-position: -102px -69px;
+}
+.filter__btn_active .icon-winter {
+	background-position: -126px -69px;
+}
 .icon-plus {
 	width: 19px;
 	height: 19px;
@@ -244,6 +270,9 @@ button:hover .icon-search {
 	background-position: -195px -32px;
 	margin-right: 20px;
 	margin-top: -4px;
+}
+a:hover .icon-requisition {
+	background-position: -195px -55px;
 }
 .icon-mail {
 	width: 23px;
@@ -802,6 +831,10 @@ a:hover .icon-inteo {
 	position: relative;
 	width: 100%;
 	min-height: 500px;
+	margin-bottom: 40px;
+	&_slider {
+		margin-bottom: 0;
+	}
 	&_slider,
 	&_slider &__slide {
 		height: 600px;
@@ -829,12 +862,11 @@ a:hover .icon-inteo {
 	}
 	&__btn {
 		margin-right: 30px !important;
-		@media @small {
-			margin-bottom: 15px !important;
-		}
+		margin-bottom: 15px !important;
 	}
 	&__link {
 		display: inline-block;
+		vertical-align: text-bottom;
 	}
 	&__back {
 		position: relative;
@@ -1055,7 +1087,6 @@ a:hover .icon-inteo {
 			width: 100%;
 		}
 		&-content {
-			background: #f1f3f3;
 			.transition(background-color, .5s, ease);
 			width: 100%;
 			display: block;
@@ -1117,6 +1148,9 @@ a:hover .icon-inteo {
 			background: #e1c8ff;
 		}
 	}
+	 /* &_main */  &__item-content {
+		background: #f1f3f3;;
+	} 
 	&__back {
 		z-index: -1;
 		position: absolute;
@@ -1134,12 +1168,29 @@ a:hover .icon-inteo {
 		opacity: 1;
 	}
 	&__img {
+		display: block;
+		//margin-right: -15px;
+		position: relative;
+		height: 60%;
+		& img {
+			max-height: 100%;
+			margin: 0 auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	&__item_20-40 &__img img {
+		width: 85%;
+		max-height: 9999px;
+	}
+	.catalog_main &__img {
 		position: absolute;
 		right: 57%;
 		top: 0;
-		display: block;
 		width: 43%;
 		min-height: 100%;
+		margin-right: 0;
 		@media @small {
 			right: 70%;
 			width: 30%;
@@ -1152,9 +1203,10 @@ a:hover .icon-inteo {
 			position: absolute;
 			top: 0;
 			right: 0;
+			width: auto;
 		}
 	}
-	&__item_20-40 &__img {
+	.catalog_main &__item_20-40 &__img {
 		right: 0;
 		left: 0;
 		width: auto;
@@ -1169,7 +1221,7 @@ a:hover .icon-inteo {
 			width: 100%;
 		}
 	}
-	&__item_small &__img {
+	.catalog_main &__item_small &__img {
 		right: auto;
 		left: 55%;
 		width: 45%;
@@ -1200,13 +1252,26 @@ a:hover .icon-inteo {
 			line-height: 30px;
 		}
 	}
+	&__name {
+		margin-left: -25px;
+		display: block;
+		height: 120px;
+		position: absolute;
+		bottom: 0;
+		& b {
+			font-weight: bold;
+			font-size: 14px;
+			color: @red;
+			margin-right: 10px;
+		}
+	}
 }
 .footer {  
 	height: 330px;
   margin: 0;
   padding: 0;
 	background: @grey;
-	min-width: 480px;
+	min-width: 320px;
 	@media @small {
 		height: auto;
 	}	
@@ -1313,5 +1378,62 @@ a:hover .icon-inteo {
 		margin-top: -3px;
 		width: 15px;
 		height: 15px;
+	}
+}
+.filter {
+	margin-bottom: 15px;
+	margin-right: -35px;
+	@media @tablet {
+		text-align: center;
+		margin-right: 10px;
+		margin-top: -25px;
+	}
+	@media @old {
+		margin-right: -20px;
+	}
+	&__holder {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 35px;
+		margin-bottom: 5px;
+		@media @tablet {
+			text-align: center;
+			margin-bottom: 0;
+		}
+		@media @old {
+			vertical-align: top;
+			margin-right: 0;
+		}
+	}
+	&__text {
+		font: 500 16px/30px 'Roboto', sans-serif;
+		display: inline-block;
+		vertical-align: text-bottom;
+		margin-right: 20px;
+		@media @tablet {
+			display: block;
+			margin-right: 0;
+			margin-bottom: 15px;
+		}
+		@media @old {
+			padding-right: 20px;
+		}
+	}
+	&__btn {
+		display: inline-block;
+		vertical-align: middle;
+		background: #f1f3f2;
+		font: 700 16px/30px 'Roboto', sans-serif;
+		padding: 10px 18px;
+		margin-right: 10px;
+		margin-bottom: 15px;
+		&_active {
+			color: #fff;
+			background: @grey;
+		}
+		@media @old {
+			display: block;
+			margin-right: 20px;
+		}
 	}
 }
