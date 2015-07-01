@@ -1382,6 +1382,7 @@ a:hover .icon-inteo {
 	}
 	&__menu {
 		list-style: none;
+		margin-bottom: 15px;
 		& li a {
 			color: #8b9292;
 			font-size: 14px;
@@ -1523,6 +1524,49 @@ a:hover .icon-inteo {
 		&_active span {
 			background: @grey;
 			color: #fff;
+		}
+	}
+}
+.social {
+	&__title {
+		font-size: 14px;
+		font-style: italic;
+		color: #8b9292;
+		margin-bottom: 10px;
+	}
+	&__btn {
+		display: inline-block;
+		vertical-align: top;
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+		background: url(../../f/i/social.png);
+		&_twitter:hover {
+			background-position: 0 -20px;
+		}
+		&_youtube {
+			background-position: -20px 0;
+			&:hover {
+				background-position: -20px -20px;
+			}
+		}
+		&_facebook {
+			background-position: -40px 0;
+			&:hover {
+				background-position: -40px -20px;
+			}
+		}
+		&_vk {
+			background-position: -60px 0;
+			&:hover {
+				background-position: -60px -20px;
+			}
+		}
+		&_google {
+			background-position: -80px 0;
+			&:hover {
+				background-position: -80px -20px;
+			}
 		}
 	}
 }
