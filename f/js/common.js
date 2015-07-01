@@ -3,8 +3,11 @@ function catalog_resize() {
 		$width = $(this).width();
 		$cont = $(this).find(".catalog__item-content");
 		$leftp = $(this).css("padding-left").replace("px", "");
-		$rightp = $cont.css("padding-right").replace("px", "");
-		if($(window).width() <= 480) {
+		$rightp = 0;
+		if($(this).closest(".catalog").hasClass("catalog_main")) {
+			$rightp = $cont.css("padding-right").replace("px", "");
+		}
+		if($(window).width() <= 480 && $(this).closest(".catalog").hasClass("catalog_main")) {
 			$cont.height($width-$leftp-$rightp);
 		}
 		else {
