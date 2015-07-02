@@ -89,6 +89,46 @@ ul {
 		padding: 8px 18px;
 	}
 }
+input[type='checkbox'],
+input[type='radio'] {
+  display:none;            
+}
+input[type='checkbox'] + label, 
+input[type='radio'] + label {
+  cursor: pointer;
+  font-weight: normal;
+  position: relative;
+  padding-left: 30px;
+}
+input[type='checkbox']:checked + label,
+input[type='radio']:checked + label {
+	color: @red;
+}
+input[type='checkbox'] + label .icon-qstn,
+input[type='radio'] + label .icon-qstn {
+	display: none;
+
+}
+input[type='checkbox']:hover + label .icon-qstn,
+input[type='radio']:hover + label .icon-qstn {
+	display: inline-block;
+}
+input[type='checkbox'] + label::before,
+input[type='radio'] + label::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  background: #f5f6f6;  
+}
+input[type='checkbox']:checked + label::before,
+input[type='radio']:checked + label::before {
+	background-image: url(../../f/i/icons.png);
+  background-repeat: no-repeat;
+  background-position: -157px -76px;
+}
 .catalog-search .input {
 	&:focus {
 		border-right: none;
@@ -170,6 +210,18 @@ ul {
   content: '';
   background: url('../../f/i/icons.png') -9999px -9999px no-repeat;
 }
+.icon-qstn {
+	width: 16px;
+	height: 16px;
+	margin-top: -2px;
+	background-position: -157px -60px;
+	&:hover {
+		background-position: -173px -60px;
+	}
+}
+a:hover .icon-qstn {
+	background-position: -173px -60px;
+}
 .icon-summer {
 	width: 26px;
 	height: 26px;
@@ -234,6 +286,15 @@ a:hover .icon-plus {
 	right: 5px;
 	margin: auto;
 }
+.icon-small-cart {
+	width: 25px;
+	height: 23px;
+	margin: -3px 15px 0 -5px;
+	background-position: 0 -96px;
+}
+a:hover .icon-small-cart {
+	background-position: -25px -96px;
+}
 .iconize-ham:before {
 	width: 23px;
 	height: 15px;
@@ -278,7 +339,7 @@ a:hover .icon-requisition {
 	width: 23px;
 	height: 18px;
 	background-position: -110px 0;
-	margin: 0 15px 0 0;
+	margin: -2px 15px 0 0;
 }
 a:hover .icon-mail,
 button:hover .icon-mail {
@@ -817,6 +878,17 @@ a:hover .icon-inteo {
 			vertical-align: top;
 		}
 	}
+	&_vertical &__img {
+		min-height: 100px;
+		position: relative;
+		& img {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+	}
 	&__num {
 		display: inline-block;
 		vertical-align: top;
@@ -1109,6 +1181,14 @@ a:hover .icon-inteo {
 	&_main {
 		margin-bottom: 0;
 	}
+	&_line  {
+		overflow: hidden;
+	}
+	&_line &__item {
+		@media @tablet {
+			width: 33.333333%;
+		}
+	}
 	&__item {
 		display: inline-block;
 		vertical-align: top;
@@ -1125,6 +1205,7 @@ a:hover .icon-inteo {
 		@media @old {
 			width: 100%;
 		}
+		
 		&-content {
 			.transition(background-color, .5s, ease);
 			width: 100%;
@@ -1568,5 +1649,132 @@ a:hover .icon-inteo {
 				background-position: -80px -20px;
 			}
 		}
+	}
+}
+.product {
+
+	&__img {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		text-align: center;
+		& img {
+			width: 75%;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	&__info {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		padding: 10px 15px;
+	}
+	&__title {
+		font-size: 40px;
+		line-height: 50px;
+		margin-bottom: 30px;
+	}
+	&__description {
+		margin-bottom: 20px;
+	}
+	&__add {
+		margin-right: 40px !important;
+		display: inline-block;
+	}
+	&__order:hover .icon-mail {
+		background-position: -110px 0;
+	}
+}
+.breadcrumbs {
+	margin-bottom: 5px;
+	& li {
+		display: inline-block;
+		vertical-align: top;
+		&:after {
+			content: '→';
+			font-size: 14px;
+			color: #bac0c0;
+			margin-left: 5px;
+		}
+		&:last-child:after {
+			content: '';
+		}
+		& a, & span {
+			font-size: 14px;
+			color: #bac0c0;
+		}
+		& a:hover {
+			color: @red;
+		}
+	}
+}
+.spec {
+	margin-bottom: 60px;
+	&__line {
+		margin-bottom: 20px;
+		&_last {
+			margin-top: -10px;
+			margin-bottom: 40px;
+		}
+	}
+	&__type {
+		display: inline-block;
+		vertical-align: top;
+		font-weight: bold;
+		width: 25%;
+		padding-right: 20px;
+	}
+	&__value {
+		display: inline-block;
+		vertical-align: top;
+		width: 75%;
+		& label {
+			padding-right: 20px;
+			margin-bottom: 10px;
+		}
+	}
+	&__checks {
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.features {
+
+	&__title {
+		font: 500 30px/60px 'Roboto', sans-serif;
+		margin-bottom: 40px;
+	}
+	&__item {
+		margin-bottom: 50px;
+		clear: both;
+	}
+	&__img {
+		display: inline-block;
+		width: 80px;
+		text-align: center;
+		margin-right: 15px;
+		& img {
+			display: inline-block;
+		}
+	}
+	&__text {
+		display: inline-block;
+		vertical-align: middle;
+		width: 80%;
+		& span {
+			color: @red;
+		}
+	}
+}
+.with-it {
+	padding-top: 20px;
+	@media @mobile {
+		display: none;
+	}
+	&__title {
+		font: 500 40px/50px 'Roboto', sans-serif;
+		margin-bottom: 70px;
 	}
 }

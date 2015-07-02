@@ -31,11 +31,15 @@ function catalog_resize() {
 				}
 			}
 		}
+		if($(this).closest(".catalog").hasClass("catalog_line")) {
+			console.log($cont.height());
+			$(this).closest(".catalog").height($cont.height());
+		}
 	});
 }
 $(document).ready(function(){
 	catalog_resize();
-	$('.catalog').packery({
+	$('.catalog:not(.catalog_line)').packery({
 	  itemSelector: '.catalog__item',
 	});
 	$(".modal-inline").fancybox({
