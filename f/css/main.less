@@ -74,6 +74,9 @@ ul {
 }
 .form-group {
 	margin-bottom: 30px;
+	@media @mobile {
+		margin-bottom: 20px;
+	}
 }
 .input {
 	height: 50px;
@@ -123,11 +126,22 @@ input[type='radio'] + label::before {
   width: 20px;
   background: #f5f6f6;  
 }
+.popup input[type='checkbox'] + label::before,
+.popup input[type='radio'] + label::before {
+	background: #fff;
+}
 input[type='checkbox']:checked + label::before,
 input[type='radio']:checked + label::before {
 	background-image: url(../../f/i/icons.png);
   background-repeat: no-repeat;
   background-position: -157px -76px;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background: #ecefef;
+}
+.popup input[type='checkbox']:checked + label::before,
+.popup input[type='radio']:checked + label::before {
+	background-position: -157px -96px;
 }
 .catalog-search .input {
 	&:focus {
@@ -181,6 +195,36 @@ input[type='radio']:checked + label::before {
 		text-align: center;
 		margin-bottom: 35px;
 		color: #232323;
+		&_bot_0 {
+			margin-bottom: 0;
+			line-height: 50px;
+		}
+		@media @mobile {
+			font-size: 30px;
+			line-height: 40px;
+		}
+	}
+	&__subtitle {
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 40px;
+		& span {
+			color: @red;
+			line-height: 1em;
+		}
+	}
+	&__caption {
+		font-weight: bold;
+		vertical-align: text-bottom;
+		line-height: 30px;
+		padding-top: 10px;
+		&__top_0 {
+			padding-top: 0;
+		}
+		@media @mobile {
+			line-height: 1em;
+			padding-top: 0;
+		}
 	}
 	&__btn {
 		text-align: center;
@@ -603,7 +647,6 @@ a:hover .icon-inteo {
 		text-align: center;
 		line-height: 20px;
 		position: relative;
-		padding-top: 45px;
 		@media @small {
 			width: 24%;
 			margin-bottom: 20px;
@@ -613,9 +656,14 @@ a:hover .icon-inteo {
 		}
 		& a,
 		& p {
+			padding-top: 45px;
+			display: inline-block;
 			@media @old {
 				font-size: 14px;
 			}
+		}
+		& a:hover {
+			color: @red!important;
 		}
 		& p {
 			color: #5e720c;
@@ -642,18 +690,20 @@ a:hover .icon-inteo {
 					height: 32px;
 					background-position: 0 0;
 				}
-				&:hover:before {
-					background-position: 0 -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: 0 -48px;
 			}
 		}
 		&_active&_coveralls {
-			& p {
+			& p, & a {
 				color: #1f447e;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: 0 -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: 0 -48px;
 			}
 		}
 		&_uniform {
@@ -664,17 +714,19 @@ a:hover .icon-inteo {
 					height: 34px;
 					background-position: -46px 0;
 				}
-				&:hover:before {
-					background-position: -46px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -46px -48px;
 			}
 		}
 		&_active&_uniform {
-			& p {
-				&:before,
-				&:hover:before {
+			& p, & a {
+				&:before {
 					background-position: -46px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -46px -48px;
 			}
 		}
 		&_oil {
@@ -686,18 +738,20 @@ a:hover .icon-inteo {
 					top: -10px;
 					background-position: -98px 0;
 				}
-				&:hover:before {
-					background-position: -98px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -98px -48px;
 			}
 		}
 		&_active&_oil {
-			& p {
+			& p, & a {
 				color: #003dae;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: -98px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -98px -48px;
 			}
 		}
 		&_promo {
@@ -709,18 +763,20 @@ a:hover .icon-inteo {
 					top:  10px;
 					background-position: -132px 0;
 				}
-				&:hover:before {
-					background-position: -132px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -132px -48px;
 			}
 		}
 		&_active&_promo {
-			& p {
+			& p, & a {
 				color: #308401;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: -132px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -132px -48px;
 			}
 		}
 		&_leisure {
@@ -732,18 +788,20 @@ a:hover .icon-inteo {
 					top: 5px;
 					background-position: -181px 0;
 				}
-				&:hover:before {
-					background-position: -181px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -181px -48px;
 			}
 		}
 		&_active&_leisure {
-			& p {
+			& p, & a {
 				color: #007e85;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: -181px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -181px -48px;
 			}
 		}
 		&_souvenirs {
@@ -755,18 +813,20 @@ a:hover .icon-inteo {
 					top: 5px;
 					background-position: -231px 0;
 				}
-				&:hover:before {
-					background-position: -231px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -231px -48px;
 			}
 		}
 		&_active&_souvenirs {
-			& p {
+			& p, & a {
 				color: #930016;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: -231px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -231px -48px;
 			}
 		}
 		&_textile {
@@ -778,18 +838,20 @@ a:hover .icon-inteo {
 					top: 5px;
 					background-position: -276px 0;
 				}
-				&:hover:before {
-					background-position: -276px -48px;
-				}
+			}
+			& a:hover:before {
+				background-position: -276px -48px;
 			}
 		}
 		&_active&_textile {
-			& p {
+			& p, & a {
 				color: #4a0e92;
-				&:before,
-				&:hover:before {
+				&:before {
 					background-position: -276px -96px;
 				}
+			}
+			& a:hover:before {
+				background-position: -276px -48px;
 			}
 		}
 		&_search {
@@ -1496,15 +1558,37 @@ a:hover .icon-inteo {
 	@media @mobile {
 		width: 450px !important;
 	}
+	@media @old {
+		width: 300px !important;
+	}
 }
 .add {
 	margin-bottom: 15px;
+}
+.col-xs-6,
+.col-xs-3,
+.col-xs-9,
+.col-xs-5,
+.col-xs-4
+ {
+	@media @mobile {
+		width: 100%;
+		margin-bottom: 25px;
+	}
 }
 .col-xs-6 {
 	@media @mobile {
 		width: 100%;
 		margin-bottom: 25px;
 	}
+}
+.col-xs-3,
+.col-xs-9,
+.col-xs-5,
+.col-xs-4 {
+	@media @mobile {
+		margin-bottom: 15px;
+	}	
 }
 .ico-link {
 	font: 700 16px/30px 'Roboto', sans-serif;
@@ -1652,23 +1736,42 @@ a:hover .icon-inteo {
 	}
 }
 .product {
-
+	display: table;
+	&__row {
+		display: table-row;
+	}
 	&__img {
-		display: inline-block;
-		vertical-align: top;
+		display: table-cell;
 		width: 50%;
 		text-align: center;
-		& img {
-			width: 75%;
-			display: inline-block;
-			vertical-align: top;
+		position: relative;
+		padding: 30px 50px 0;	
+		vertical-align: top;
+		@media @small {
+			width: 40%;
 		}
+		@media @tablet {
+			width: 100%;
+			display: block;
+			margin-bottom: 30px;
+		}
+		@media @old {
+			padding: 30px;
+			margin-bottom: 0;
+	  }
 	}
 	&__info {
-		display: inline-block;
-		vertical-align: top;
+		display: table-cell;
 		width: 50%;
 		padding: 10px 15px;
+		vertical-align: top;
+		@media @small {
+			width: 60%;
+		}
+		@media @tablet {
+			width: 100%;
+			display: block;
+		}
 	}
 	&__title {
 		font-size: 40px;
@@ -1681,11 +1784,125 @@ a:hover .icon-inteo {
 	&__add {
 		margin-right: 40px !important;
 		display: inline-block;
+		@media @mobile {
+			margin-bottom: 20px!important;
+		}
 	}
 	&__order:hover .icon-mail {
 		background-position: -110px 0;
 	}
 }
+.product-carou {
+	position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  &:before,
+  &:after {
+		content: '';
+  	display: table;
+  }
+  max-width: 450px;
+  margin: 0 auto;
+	&__holder {
+		margin-bottom: 70px;
+	}
+	&__pager {
+		@media @small {
+			padding-left: 50px;
+			text-align: left;
+		}
+		@media @tablet {
+			padding-left: 0;
+			text-align: center;
+		} 
+		@media (max-width: 600px){
+			padding-left: 50px;
+			text-align: left;
+		}
+		@media @old {
+			padding-left: 0;
+		}
+		& a {
+			display: inline-block;
+			width: 60px;
+			margin-left: 15px;
+			position: relative;
+			height: 55px;
+			vertical-align: top;
+			&:hover {
+				color: @grey;
+			}
+			&:after {
+				opacity: .6;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: '';
+				background: #fff;
+				width: 100%;
+			}
+			&.selected:after {
+				opacity: 0;
+			}
+			&.thumb1,
+			&.thumb2 {
+				&:before {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					content: '';
+					margin: auto 0;
+					pointer-events: none;
+					line-height: 55px;
+					@media @old {
+						left: 0!important;
+						margin-right: 0!important;
+						top: -50px;
+					}
+				}
+			}
+			&.thumb1 {
+				margin-right: 110px;
+				@media @small {
+					display: block;
+					margin-bottom: 20px;
+				}
+				@media @tablet {
+					display: inline-block;
+					margin-bottom: 0;
+				}
+				@media (max-width: 600px) {
+					display: block;
+					margin-bottom: 20px;
+				} 
+				@media @old {
+					margin-bottom: 50px;
+				}
+				&:before {
+					content: 'Схема';
+					left: -65px;
+				}
+			}
+			&.thumb2 {	
+				&:before {
+					content: 'Примеры';
+					left: -85px;
+				}
+			}
+			& img {
+				width: 100%;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto 0;
+				position: absolute;
+			}
+		}
+	}
+}
+
 .breadcrumbs {
 	margin-bottom: 5px;
 	& li {
@@ -1724,11 +1941,26 @@ a:hover .icon-inteo {
 		font-weight: bold;
 		width: 25%;
 		padding-right: 20px;
+		@media @small {
+			width: 30%;
+		}
+		@media @old {
+			width: 100%;
+			display: block;
+			margin-bottom: 5px;
+		}
 	}
 	&__value {
 		display: inline-block;
 		vertical-align: top;
 		width: 75%;
+		@media @small {
+			width: 70%;
+		}
+		@media @old {
+			width: 100%;
+			display: block;
+		}
 		& label {
 			padding-right: 20px;
 			margin-bottom: 10px;
@@ -1738,6 +1970,14 @@ a:hover .icon-inteo {
 		width: 50%;
 		display: inline-block;
 		vertical-align: top;
+		@media @old {
+			display: block;
+			width: 100%;
+		}
+	}
+	&__wrap {
+		white-space: nowrap;
+		word-wrap: normal;
 	}
 }
 .features {
@@ -1745,6 +1985,9 @@ a:hover .icon-inteo {
 	&__title {
 		font: 500 30px/60px 'Roboto', sans-serif;
 		margin-bottom: 40px;
+		@media @old {
+			line-height: 40px;
+		}
 	}
 	&__item {
 		margin-bottom: 50px;
@@ -1762,7 +2005,13 @@ a:hover .icon-inteo {
 	&__text {
 		display: inline-block;
 		vertical-align: middle;
-		width: 80%;
+		width: 75%;
+		@media @mobile {
+			width: 65%;
+		}
+		@media @old {
+			width: 60%;
+		}
 		& span {
 			color: @red;
 		}

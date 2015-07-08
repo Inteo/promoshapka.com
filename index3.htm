@@ -20,11 +20,46 @@
   <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
   <script src="f/js/bootstrap.min.js"></script>
   <script src="f/js/packery.pkgd.min.js"></script>
+  <script src="f/js/stickyfill.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/main.css">
   <script src="f/js/common.js"></script>
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
+  <script>
+  	 $(document).ready(function(){
+  	 	var carousel = $(".product-carou__holder");
+	 		$('.product-carou__holder').carouFredSel({
+        width: "100%",
+        height: "auto",
+  			responsive: true,
+        scroll: {
+          duration: 450,
+          timeoutDuration: 3500,
+          fx: 'fade'
+        },
+       	pagination: {
+					container: '.product-carou__pager',
+						anchorBuilder: function( nr ) {
+							return '<a href="#" class="thumb' + nr + '"><img src="' + this.src + '" /></a>';
+						}
+				},
+				onCreate: function () {
+			    $(window).on('resize', function () {
+			      carousel.parent().add(carousel).height(carousel.children().first().height());
+			    }).trigger('resize');
+			  }
+      });
+      $(".product-carou").Stickyfill();
+  	});
+  	$(window).on('scroll', function() {
+  		var carousel = $(".product-carou__holder");
+  		var top = $(".features__title").offset().top;
+			if($(this).scrollTop() >= top - 50) {
+				$('.product-carou__holder').trigger('slideTo', 0);
+			}
+		}).trigger('scroll');
+  </script>
 </head>
 <body>
   <div class="wrap clearfix">  
@@ -73,7 +108,7 @@
             <li class="catalog-menu__item catalog-menu__item_coveralls"><a href="#">Спецодежда</a></li>
             <li class="catalog-menu__item catalog-menu__item_uniform"><a href="#">Форменная <br> одежда</a></li>
             <li class="catalog-menu__item catalog-menu__item_oil"><a href="#">Одежда нефтегазового <br> сектора</a></li>
-            <li class="catalog-menu__item catalog-menu__item_promo"><a href="#">Рекламная одежда</a></li>
+            <li class="catalog-menu__item catalog-menu__item_promo catalog-menu__item_active"><a href="#">Рекламная одежда</a></li>
             <li class="catalog-menu__item catalog-menu__item_leisure"><a href="#">Одежда для <br> активного отдыха</a></li>
             <li class="catalog-menu__item catalog-menu__item_souvenirs"><a href="#">Сувенирная <br> продукция</a></li>
             <li class="catalog-menu__item catalog-menu__item_textile"><a href="#">Текстиль</a></li>
@@ -96,100 +131,112 @@
     <div class="content">
     	<div class="holder">
     		<div class="product">
-    			<div class="product__img">
-    				<img src="f/i/product/1.png" alt="">
-    			</div><div class="product__info">
-    				<ul class="breadcrumbs">
-    					<li><a href="#">Рекламная одежда</a></li>
-    					<li><span>Головные уборы</span></li>
-    				</ul>
-    				<h1 class="product__title">Бейсболка пятиклинка цветная</h1>
-    				<p class="product__description">Оптимальный вариант для промо акций с максимально большим вертикальным передним клином, позволяющим выполнить на нем крупное, хорошо читаемое изображение (логотип).</p>
-    				<div class="spec">
-    					<div class="spec__line">
-    						<span class="spec__type">Артикул
-    						</span><span class="spec__value">1-01</span>
-    					</div>
-    					<div class="spec__line">
-    						<span class="spec__type">Сезон
-    						</span><span class="spec__value">лето</span>
-    					</div>
-    					<div class="spec__line">
-    						<span class="spec__type">Ткань
-    						</span><span class="spec__value">смесовая (65% полиэстер, 35% хлопок) <a href="#" class="icon-qstn">&nbsp;</a></span>
-    					</div>
-    					<div class="spec__line">
-    						<span class="spec__type">Размеры
-    						</span><span class="spec__value">единый <a href="#" class="icon-qstn">&nbsp;</a></span>
-    					</div>
-    					<div class="spec__line">
-    						<span class="spec__type">Дополнительные услуги
-    						</span><div class="spec__value">
-									<div class="spec__checks">
-										<div class="spec__input">
-											<input id="checks1" type="checkbox" name="checks1" hidden />
-        							<label for="checks1">Вышивка <a href="#" class="icon-qstn">&nbsp;</a></label>
+    			<div class="product__row">
+    				<div class="product__img">
+	    				<div class="product-carou">
+	    					<div class="product-carou__wrap">
+	    						<div class="product-carou__holder">
+			    					<img src="f/i/product/4.png" alt="">
+			  						<img src="f/i/product/1.png" alt="">
+			  						<img src="f/i/product/2.png" alt="">
+			  						<img src="f/i/product/3.png" alt="">
+			    				</div>
+	    					</div>
+	    				<div class="product-carou__pager"></div>
+	    			</div>
+	    			</div><div class="product__info">
+	    				<ul class="breadcrumbs">
+	    					<li><a href="#">Рекламная одежда</a></li>
+	    					<li><span>Головные уборы</span></li>
+	    				</ul>
+	    				<h1 class="product__title">Бейсболка пятиклинка цветная</h1>
+	    				<p class="product__description">Оптимальный вариант для промо акций с максимально большим вертикальным передним клином, позволяющим выполнить на нем крупное, хорошо читаемое изображение (логотип).</p>
+	    				<div class="spec">
+	    					<div class="spec__line">
+	    						<span class="spec__type">Артикул
+	    						</span><span class="spec__value">1-01</span>
+	    					</div>
+	    					<div class="spec__line">
+	    						<span class="spec__type">Сезон
+	    						</span><span class="spec__value">лето</span>
+	    					</div>
+	    					<div class="spec__line">
+	    						<span class="spec__type">Ткань
+	    						</span><span class="spec__value">смесовая (65% полиэстер, 35% хлопок) <a href="#" class="icon-qstn">&nbsp;</a></span>
+	    					</div>
+	    					<div class="spec__line">
+	    						<span class="spec__type">Размеры
+	    						</span><span class="spec__value">единый <a href="#" class="icon-qstn">&nbsp;</a></span>
+	    					</div>
+	    					<div class="spec__line">
+	    						<span class="spec__type">Дополнительные услуги
+	    						</span><div class="spec__value">
+										<div class="spec__checks">
+											<div class="spec__input">
+												<input id="checks1" type="checkbox" name="checks1" hidden />
+	        							<label for="checks1">Вышивка <a href="#" class="icon-qstn">&nbsp;</a></label>
+											</div>
+											<div class="spec__input">
+												<input id="checks2" type="checkbox" name="checks2" hidden />
+	        							<label for="checks2">Печать <a href="#" class="icon-qstn">&nbsp;</a></label>
+											</div>
+											<div class="spec__input">
+												<input id="checks3" type="checkbox" name="checks3" hidden />
+	        							<label for="checks3">Печать на тесьме, закрывающей <span class="spec__wrap">швы <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+											</div>
+											<div class="spec__input">
+												<input id="checks4" type="checkbox" name="checks4" hidden />
+	        							<label for="checks4">Печать на тесьме <span class="spec__wrap">козырька <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+											</div>
+										</div><div class="spec__checks">
+											<div class="spec__input">
+												<input id="checks5" type="checkbox" name="checks5" hidden />
+		        						<label for="checks5">Объемный кант <a href="#" class="icon-qstn">&nbsp;</a></label>
+											</div>
+											<div class="spec__input">
+	        							<input id="checks6" type="checkbox" name="checks6" hidden />
+	        							<label for="checks6">Гравировка на <span class="spec__wrap">пряжке <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+											</div>
+											<div class="spec__input">
+	        							<input id="checks7" type="checkbox" name="checks7" hidden />
+	        							<label for="checks7">Жаккардовая <span class="spec__wrap">этикетка <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+											</div>
+											<div class="spec__input">
+	        							<input id="checks8" type="checkbox" name="checks8" hidden />
+	        							<label for="checks8">Индивидуальная <span class="spec__wrap">упаковка <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+											</div>
 										</div>
-										<div class="spec__input">
-											<input id="checks2" type="checkbox" name="checks2" hidden />
-        							<label for="checks2">Печать <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-										<div class="spec__input">
-											<input id="checks3" type="checkbox" name="checks3" hidden />
-        							<label for="checks3">Печать на тесьме, закрывающей швы <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-										<div class="spec__input">
-											<input id="checks4" type="checkbox" name="checks4" hidden />
-        							<label for="checks4">Печать на тесьме козырька <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-									</div><div class="spec__checks">
-										<div class="spec__input">
-											<input id="checks5" type="checkbox" name="checks5" hidden />
-	        						<label for="checks5">Объемный кант <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-										<div class="spec__input">
-        							<input id="checks6" type="checkbox" name="checks6" hidden />
-        							<label for="checks6">Гравировка на пряжке <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-										<div class="spec__input">
-        							<input id="checks7" type="checkbox" name="checks7" hidden />
-        							<label for="checks7">Жаккардовая этикетка <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-										<div class="spec__input">
-        							<input id="checks8" type="checkbox" name="checks8" hidden />
-        							<label for="checks8">Индивидуальная упаковка <a href="#" class="icon-qstn">&nbsp;</a></label>
-										</div>
-									</div>
-    						</div>
-    					</div>
-    					<div class="spec__line spec__line_last">
-    						<span class="spec__type">Цена
-    						</span><span class="spec__value">
-									рассчитывается индивидуально, зависит от объема заказа и дополнительных услуг
-    						</span>
-    					</div>
-    					<a href="#" class="btn modal-inline product__add"><i class="icon-small-cart"></i>Добавить к заказу</a>
-    					<a href="#" class="ico-link product__order"><i class="icon-mail"></i>Заказать в один клик</a>
-    				</div>
-    				<div class="features">
-    					<p class="features__title">Особенности конструкции</p>
-    					<div class="features__item">
-    						<div class="features__img"><img src="f/i/features/1.png" alt=""></div>
-    						<p class="features__text"><span>Купол</span> состоит из 5 клиньев. Передний клин жесткий для приданя формы.</p>
-    					</div>
-    					<div class="features__item">
-    						<div class="features__img"><img src="f/i/features/2.png" alt=""></div>
-    						<p class="features__text"><span>Козырек</span> с обтачной декоративной отстрочкой.</p>
-    					</div>
-    					<div class="features__item">
-    						<div class="features__img"><img src="f/i/features/3.png" alt=""></div>
-    						<p class="features__text"><span>Вентиляционные отверстия</span> прекрасно проветриваю голову, поддерживая комфортную температуру.</p>
-    					</div>
-    					<div class="features__item">
-    						<div class="features__img"><img src="f/i/features/4.png" alt=""></div>
-    						<p class="features__text">Удобный <span>хлястик</span> под металлическую пряжку.</p>
-    					</div>
-    				</div>
+	    						</div>
+	    					</div>
+	    					<div class="spec__line spec__line_last">
+	    						<span class="spec__type">Цена
+	    						</span><span class="spec__value">
+										рассчитывается индивидуально, зависит от объема заказа и дополнительных услуг
+	    						</span>
+	    					</div>
+	    					<a href="#add-to-cart" class="btn modal-inline product__add"><i class="icon-small-cart"></i>Добавить к заказу</a>
+	    					<a href="#" class="ico-link product__order"><i class="icon-mail"></i>Заказать в один клик</a>
+	    				</div>
+	    				<div class="features">
+	    					<p class="features__title">Особенности конструкции</p>
+	    					<div class="features__item">
+	    						<div class="features__img"><img src="f/i/features/1.png" alt=""></div>
+	    						<p class="features__text"><span>Купол</span> состоит из 5 клиньев. Передний клин жесткий для приданя формы.</p>
+	    					</div>
+	    					<div class="features__item">
+	    						<div class="features__img"><img src="f/i/features/2.png" alt=""></div>
+	    						<p class="features__text"><span>Козырек</span> с обтачной декоративной отстрочкой.</p>
+	    					</div>
+	    					<div class="features__item">
+	    						<div class="features__img"><img src="f/i/features/3.png" alt=""></div>
+	    						<p class="features__text"><span>Вентиляционные отверстия</span> прекрасно проветриваю голову, поддерживая комфортную температуру.</p>
+	    					</div>
+	    					<div class="features__item">
+	    						<div class="features__img"><img src="f/i/features/4.png" alt=""></div>
+	    						<p class="features__text">Удобный <span>хлястик</span> под металлическую пряжку.</p>
+	    					</div>
+	    				</div>
+	    			</div>
     			</div>
     		</div>
     	</div>
@@ -340,45 +387,87 @@
     </div>
   </footer> 
   <div class="popups">
-    <div class="popup" id="request">
-      <p class="popup__title">Отправить заявку</p>
+    <div class="popup" id="add-to-cart">
+      <p class="popup__title popup__title_bot_0">Бейсболка пятиклинка цветная</p>
+      <p class="popup__subtitle">Артикул <span>ТУ 858-6250-2012</span></p>
       <form class="form-horizontal">
         <div class="form-group">
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Name" placeholder="Ваше имя">
+          <div class="col-xs-3">
+            <p class="popup__caption">Ткань</p>
           </div>
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Phone" placeholder="Телефон">
-          </div>
-        </div>
-        <div class="form-group has-feedback">
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Email" placeholder="Электронная почта">
-          </div>
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Company" placeholder="Организация">
-            <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Введите фамилию">
-            <span class="icon-ok form-control-feedback"></span>  -->
-            <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Введите фамилию">
-            <span class="icon-remove form-control-feedback"></span> -->
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Хлопок" disabled>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-xs-12">
-            <textarea rows="3" class="form-control input" id="Comments" placeholder="Комментарий к заказу"></textarea>
+          <div class="col-xs-3">
+            <p class="popup__caption">Размер</p>
+          </div>
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Единый" disabled>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-xs-12">
-            <div class="add">
-              <a href="#" ><i class="icon-plus"></i>Прикрепить реквизиты</a>
-            </div>
-            <p class="ico-link"><i class="icon-requisition"></i>Реквизиты компании <span>(.doc, 25Кб)</span><a href="#" class="iconize-close ico-link__close"></a></p>
+          <div class="col-xs-3">
+            <p class="popup__caption">Количество</p>
+          </div>
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="1" >
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="popup__caption popup__caption__top_0">Дополнительные услуги</p>
+          </div>
+          <div class="col-xs-5">
+          	<div>
+							<input id="checks9" type="checkbox" name="checks9" hidden />
+							<label for="checks9">Вышивка</label>
+						</div>
+						<div>
+							<input id="checks10" type="checkbox" name="checks10" hidden />
+							<label for="checks10">Печать</label>
+						</div>
+						<div>
+							<input id="checks11" type="checkbox" name="checks11" hidden />
+							<label for="checks11">Печать на тесьме, закрывающей швы</label>
+						</div>
+						<div>
+							<input id="checks12" type="checkbox" name="checks12" hidden />
+							<label for="checks12">Печать на тесьме козырька </label>
+						</div>
+          </div>
+          <div class="col-xs-4">
+						<div>
+							<input id="checks13" type="checkbox" name="checks13" hidden />
+  						<label for="checks13">Объемный кант</label>
+						</div>
+						<div>
+							<input id="checks14" type="checkbox" name="checks14" hidden />
+							<label for="checks14">Гравировка на пряжке</label>
+						</div>
+						<div>
+							<input id="checks15" type="checkbox" name="checks15" hidden />
+							<label for="checks15">Жаккардовая этикетка</label>
+						</div>
+						<div>
+							<input id="checks16" type="checkbox" name="checks16" hidden />
+							<label for="checks16">Индивидуальная упаковка </label>
+						</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-xs-3">
+            <p class="popup__caption">Комментарии</p>
+          </div>
+          <div class="col-xs-9">
+            <textarea rows="3" class="form-control input" id="comments"></textarea>
           </div>
         </div>
         <div class="form-group">
           <div class="popup__btn">
-            <button class="btn" type="submit"><i class="icon-mail"></i>Отправить</button>
+            <button class="btn" type="submit"><i class="icon-small-cart"></i>Добавить</button>
           </div>
         </div>
       </form>

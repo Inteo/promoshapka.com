@@ -32,7 +32,6 @@ function catalog_resize() {
 			}
 		}
 		if($(this).closest(".catalog").hasClass("catalog_line")) {
-			console.log($cont.height());
 			$(this).closest(".catalog").height($cont.height());
 		}
 	});
