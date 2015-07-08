@@ -17,10 +17,12 @@
   <script src="f/js/jquery-1.11.3.min.js"></script>
   <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
   <link rel="stylesheet" href="f/css/bootstrap.min.css">
+  <link rel="stylesheet" href="f/css/jquery.mCustomScrollbar.css">
   <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
   <script src="f/js/bootstrap.min.js"></script>
   <script src="f/js/packery.pkgd.min.js"></script>
   <script src="f/js/stickyfill.min.js"></script>
+  <script src="f/js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" href="f/css/main.css">
   <script src="f/js/common.js"></script>
@@ -49,6 +51,9 @@
 			      carousel.parent().add(carousel).height(carousel.children().first().height());
 			    }).trigger('resize');
 			  }
+      });
+      $(".popup__text").mCustomScrollbar({
+        scrollInertia: 150
       });
       $(".product-carou").Stickyfill();
   	});
@@ -174,36 +179,36 @@
 										<div class="spec__checks">
 											<div class="spec__input">
 												<input id="checks1" type="checkbox" name="checks1" hidden />
-	        							<label for="checks1">Вышивка <a href="#" class="icon-qstn">&nbsp;</a></label>
+	        							<label for="checks1">Вышивка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></label>
 											</div>
 											<div class="spec__input">
 												<input id="checks2" type="checkbox" name="checks2" hidden />
-	        							<label for="checks2">Печать <a href="#" class="icon-qstn">&nbsp;</a></label>
+	        							<label for="checks2">Печать <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></label>
 											</div>
 											<div class="spec__input">
 												<input id="checks3" type="checkbox" name="checks3" hidden />
-	        							<label for="checks3">Печать на тесьме, закрывающей <span class="spec__wrap">швы <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+	        							<label for="checks3">Печать на тесьме, закрывающей <span class="spec__wrap">швы <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 											<div class="spec__input">
 												<input id="checks4" type="checkbox" name="checks4" hidden />
-	        							<label for="checks4">Печать на тесьме <span class="spec__wrap">козырька <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+	        							<label for="checks4">Печать на тесьме <span class="spec__wrap">козырька <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 										</div><div class="spec__checks">
 											<div class="spec__input">
 												<input id="checks5" type="checkbox" name="checks5" hidden />
-		        						<label for="checks5">Объемный кант <a href="#" class="icon-qstn">&nbsp;</a></label>
+		        						<label for="checks5">Объемный <span class="spec__wrap">кант <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 											<div class="spec__input">
 	        							<input id="checks6" type="checkbox" name="checks6" hidden />
-	        							<label for="checks6">Гравировка на <span class="spec__wrap">пряжке <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+	        							<label for="checks6">Гравировка на <span class="spec__wrap">пряжке <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 											<div class="spec__input">
 	        							<input id="checks7" type="checkbox" name="checks7" hidden />
-	        							<label for="checks7">Жаккардовая <span class="spec__wrap">этикетка <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+	        							<label for="checks7">Жаккардовая <span class="spec__wrap">этикетка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 											<div class="spec__input">
 	        							<input id="checks8" type="checkbox" name="checks8" hidden />
-	        							<label for="checks8">Индивидуальная <span class="spec__wrap">упаковка <a href="#" class="icon-qstn">&nbsp;</a></span></label>
+	        							<label for="checks8">Индивидуальная <span class="spec__wrap">упаковка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
 											</div>
 										</div>
 	    						</div>
@@ -472,6 +477,17 @@
         </div>
       </form>
     </div>
+    <div class="popup" id="add-service">
+    	<div class="popup__img">
+    		<img src="f/i/add-service.jpg">
+			</div><div class="popup__info">
+				<p class="popup__title">Гравировка</p>
+				<p class="popup__text">Лазерная гравировка — способ нанесения логотипа, при котором создание изображений и надписей на поверхностях производится путём создания борозд в верхнем слое носителя с помощью лазерного луча. В основном, гравировку используют для персонализации изделий из металла, стекла, дерева, текстиля и кожи. Маркировка изделия с помощью лазерной гравировки придаст изделию уникальность и неповторимость.</p>
+				<div class="popup__btn">
+					<a href="#" class="btn"><i class="icon-check"></i>Добавить к заказу</a>
+				</div>
+			</div>
+   	</div>
   </div>
 </body>
 </html>

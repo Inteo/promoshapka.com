@@ -154,7 +154,7 @@ input[type='radio']:checked + label::before {
 	color: #fff;
 	border-radius: 0;
 	margin: 0 !important;
-	padding: 7px 20px;
+	padding: 8px 20px;
 	&:hover {
 		color: #fff;
 		background: @red;
@@ -213,6 +213,28 @@ input[type='radio']:checked + label::before {
 			line-height: 1em;
 		}
 	}
+	&__img {
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+		& img {
+			min-width: 100%;
+			height: 100%;
+		}
+	}
+	&__info {
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+	}
+	&__info &__title{
+		text-align: left;
+		margin-bottom: 20px;
+	}
+	&__text {
+		margin-bottom: 40px;
+	}
 	&__caption {
 		font-weight: bold;
 		vertical-align: text-bottom;
@@ -226,12 +248,59 @@ input[type='radio']:checked + label::before {
 			padding-top: 0;
 		}
 	}
-	&__btn {
-		text-align: center;
-	}
 	& a {
 		font: 700 16px/30px 'Roboto', sans-serif;
 	}
+	&__btn {
+		text-align: center;
+	}
+	&__btn .btn {
+		line-height: 35px;
+	}
+}
+#add-service {
+	max-width: 1200px;
+	padding: 0;
+	.popup__info {
+		padding: 40px 20px 40px 50px;
+		@media @mobile {
+			width: 100%;
+		}
+	}
+	.popup__img {
+		& img {
+			max-height: 460px;
+		}
+		@media @mobile {
+			width: 100%;
+			height: 300px;
+		}
+	}
+	.popup__text {
+		max-height: 200px;
+		position: relative;
+		overflow: hidden;
+		padding-right: 20px;
+	}
+	.popup__btn {
+		margin-left: -30px;
+	}
+}
+.mCSB_draggerRail {
+	background-color: #fff !important;
+}
+.mCSB_scrollTools .mCSB_dragger_bar {
+	display: none;
+}
+.mCSB_dragger {
+	opacity: 1 !important;
+	background: @red;
+	border-radius: 0;
+	//height: 50px !important;
+	width: 3px !important;
+	left: 50%;
+	margin-left: -1px;
+	z-index: 2;
 }
 [class^="icon-"], [class*=" icon-"] {
   display: inline-block;
@@ -265,6 +334,15 @@ input[type='radio']:checked + label::before {
 }
 a:hover .icon-qstn {
 	background-position: -173px -60px;
+}
+.icon-check {
+	width: 26px;
+	height: 26px;
+	background-position: -58px -96px;
+	margin: -3px 15px 0 -5px;
+}
+a:hover .icon-check {
+	background-position: -84px -96px;
 }
 .icon-summer {
 	width: 26px;
