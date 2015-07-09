@@ -60,6 +60,7 @@
 	      	if($(this).height() > maxHeight) maxHeight = $(this).height();
 	      });
 	      carousel.height(maxHeight);
+	      carousel.parent().height(maxHeight);
       }, 500);
       
       $(".popup__text").mCustomScrollbar({
