@@ -44,13 +44,11 @@
           fx: 'fade',
         },
         onCreate: function () {
-          $(window).on('resize', function () {
-          	var maxHeight = 0;
-            carousel.find("img").each(function(){
-            	if($(this).height() > maxHeight) maxHeight = $(this).height();
-            });
-            carousel.parent().height(maxHeight);
-          }).trigger('resize');
+          var maxHeight = 0;
+          carousel.find("img").each(function(){
+          	if($(this).height() > maxHeight) maxHeight = $(this).height();
+          });
+          carousel.parent().height(maxHeight);
 			  },
        	pagination: {
 					container: '.product-carou__pager',
