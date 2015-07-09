@@ -30,7 +30,9 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
   	 $(document).ready(function(){
+
   	 	var carousel = $(".product-carou__wrap");
+  	 	
 	 		$('.product-carou__holder').carouFredSel({
   			responsive: true,
   			height: "auto",
@@ -44,7 +46,7 @@
           fx: 'fade',
         },
         onCreate: function () {
-         
+        	
 			  },
        	pagination: {
 					container: '.product-carou__pager',
@@ -55,6 +57,7 @@
       });
       var maxHeight = 0;
       carousel.find("img").each(function(){
+      	$.preloadImages($(this).attr("src"));
       	if($(this).height() > maxHeight) maxHeight = $(this).height();
       });
       carousel.height(maxHeight);
