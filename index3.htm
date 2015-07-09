@@ -30,7 +30,7 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
   	 $(document).ready(function(){
-  	 	var carousel = $(".product-carou__holder");
+  	 	var carousel = $(".product-carou__wrap");
 	 		$('.product-carou__holder').carouFredSel({
   			responsive: true,
   			height: "auto",
@@ -44,11 +44,7 @@
           fx: 'fade',
         },
         onCreate: function () {
-          var maxHeight = 0;
-          carousel.find("img").each(function(){
-          	if($(this).height() > maxHeight) maxHeight = $(this).height();
-          });
-          carousel.parent().height(maxHeight);
+         
 			  },
        	pagination: {
 					container: '.product-carou__pager',
@@ -57,11 +53,24 @@
 						}
 				}
       });
+      var maxHeight = 0;
+      carousel.find("img").each(function(){
+      	if($(this).height() > maxHeight) maxHeight = $(this).height();
+      });
+      carousel.height(maxHeight);
       $(".popup__text").mCustomScrollbar({
         scrollInertia: 150
       });
       $(".product-carou").Stickyfill();
   	});
+  	$(window).on('resize', function(){
+  		var carousel = $(".product-carou__wrap");
+  		var maxHeight = 0;
+      carousel.find("img").each(function(){
+      	if($(this).height() > maxHeight) maxHeight = $(this).height();
+      });
+      carousel.height(maxHeight);
+  	}).trigger('resize');
   	$(window).on('scroll', function() {
   		var carousel = $(".product-carou__holder");
   		var top = $(".features__title").offset().top;
