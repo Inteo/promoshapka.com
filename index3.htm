@@ -48,15 +48,11 @@
           fx: 'fade',
         },
         onCreate: function () {
-          setTimeout(function(){
-            $(window).on('resize', function () {
-            	var maxHeight = 0;
-				      carousel.find("img").each(function(){
-				      	if($(this).height() > maxHeight) maxHeight = $(this).height();
-				      });
-				      carousel.height(maxHeight);
-          }).trigger('resize');
-          }, 200);
+        	var maxHeight = 0;
+		      carousel.find("img").each(function(){
+		      	if($(this).height() > maxHeight) maxHeight = $(this).height();
+		      });
+		      carousel.height(maxHeight);
         },
        	pagination: {
 					container: '.product-carou__pager',
@@ -71,14 +67,6 @@
       });
       $(".product-carou").Stickyfill();
   	});
-  	$(window).on('resize', function(){
-  		var carousel = $(".product-carou__wrap");
-  		var maxHeight = 0;
-      carousel.find("img").each(function(){
-      	if($(this).height() > maxHeight) maxHeight = $(this).height();
-      });
-      carousel.height(maxHeight);
-  	}).trigger('resize');
   	$(window).on('scroll', function() {
   		var carousel = $(".product-carou__holder");
   		var top = $(".features__title").offset().top;
