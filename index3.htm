@@ -29,52 +29,44 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
-  	 $(document).ready(function(){
-
-  	 	var carousel = $(".product-carou__holder");
-  	 	carousel.find("img").each(function(){
-      	$.preloadImages($(this).attr("src"));
-      });
-	 		$('.product-carou__holder').carouFredSel({
-  			responsive: true,
-  			height: "auto",
-  			auto: false,
-  			item: 1,
-  			width: "100%",
-  			items: {
-       	 	start: 1,
-       	},
-	     	scroll: {
-          fx: 'fade',
-        },
-       	pagination: {
+	 	$(document).ready(function(){
+		 	var carousel = $(".product-carou__holder");
+	 		carousel.carouFredSel({
+				responsive: true,
+	      height: "variable",
+	      auto: false,
+	      width: "100%",
+	      items: {
+	        start: 1
+	      },
+	      scroll: {
+	        fx: 'fade',
+	        items: 1
+	      },
+	     	pagination: {
 					container: '.product-carou__pager',
 						anchorBuilder: function( nr ) {
-							return '<a href="#" class="thumb' + nr + '"><img src="' + this.src + '" /></a>';
+							return '<a href="#" class="thumb' + nr + '"><img src="' + $(this).find("img").attr("src") + '" /></a>';
 						}
 				}
-      });
-      setTimeout(function(){
-        var maxHeight = 0;
-	      carousel.find("img").each(function(){
-	      	if($(this).height() > maxHeight) maxHeight = $(this).height();
-	      });
-	      carousel.parent().height(maxHeight);
-	      carousel.height(maxHeight);
-      }, 500);
-      
-      $(".popup__text").mCustomScrollbar({
-        scrollInertia: 150
-      });
-      $(".product-carou").Stickyfill();
+	    });   
+	    $(".popup__text").mCustomScrollbar({
+	      scrollInertia: 150
+	    });
+	    $(".product-carou").Stickyfill();
+	    var top = $(".features__title").offset().top;
+	    if($(this).scrollTop() >= top - 100) {
+	      $('.product-carou__holder').trigger('slideTo', 0);
+	    }
+	    $('[data-toggle="popover"]').popover();
   	});
-  	$(window).on('scroll', function() {
-  		var carousel = $(".product-carou__holder");
-  		var top = $(".features__title").offset().top;
+		$(window).on('scroll', function() {
+			var carousel = $(".product-carou__holder");
+			var top = $(".features__title").offset().top;
 			if($(this).scrollTop() >= top - 100) {
 				$('.product-carou__holder').trigger('slideTo', 0);
 			}
-		}).trigger('scroll');
+		});
   </script>
 </head>
 <body>
@@ -152,10 +144,10 @@
 	    				<div class="product-carou">
 	    					<div class="product-carou__wrap">
 	    						<div class="product-carou__holder">
-			    					<img src="f/i/product/4.png" alt="" style="width: 450px">
-			  						<img src="f/i/product/1.png" alt="" style="width: 450px">
-			  						<img src="f/i/product/2.png" alt="" style="width: 450px">
-			  						<img src="f/i/product/3.png" alt="" style="width: 450px">
+			    					<div class="product-carou__item"><img src="f/i/product/4.png" alt="" width="487" height="443"></div>
+			  						<div class="product-carou__item"><img src="f/i/product/1.png" alt="" width="490" height="306"></div>
+			  						<div class="product-carou__item"><img src="f/i/product/2.png" alt="" width="887" height="665"></div>
+			  						<div class="product-carou__item"><img src="f/i/product/3.png" alt="" width="955" height="611"></div>
 			    				</div>
 	    					</div>
 	    				<div class="product-carou__pager"></div>
@@ -178,49 +170,25 @@
 	    					</div>
 	    					<div class="spec__line">
 	    						<span class="spec__type">Ткань
-	    						</span><span class="spec__value">смесовая (65% полиэстер, 35% хлопок) <a href="#" class="icon-qstn">&nbsp;</a></span>
+	    						</span><span class="spec__value">смесовая (65% полиэстер, 35% хлопок) <a href="#" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?" data-placement="top" data-trigger="focus" class="icon-qstn">&nbsp;</a></span>
 	    					</div>
 	    					<div class="spec__line">
 	    						<span class="spec__type">Размеры
-	    						</span><span class="spec__value">единый <a href="#" class="icon-qstn">&nbsp;</a></span>
+	    						</span><span class="spec__value">единый <a href="#" class="icon-qstn" data-toggle="popover" data-trigger="focus" title="Popover title" data-placement="top" data-content="And here's some amazing content. It's very engaging. Right?">&nbsp;</a></span>
 	    					</div>
 	    					<div class="spec__line">
 	    						<span class="spec__type">Дополнительные услуги
 	    						</span><div class="spec__value">
 										<div class="spec__checks">
-											<div class="spec__input">
-												<input id="checks1" type="checkbox" name="checks1" hidden />
-	        							<label for="checks1">Вышивка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></label>
-											</div>
-											<div class="spec__input">
-												<input id="checks2" type="checkbox" name="checks2" hidden />
-	        							<label for="checks2">Печать <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></label>
-											</div>
-											<div class="spec__input">
-												<input id="checks3" type="checkbox" name="checks3" hidden />
-	        							<label for="checks3">Печать на тесьме, закрывающей <span class="spec__wrap">швы <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
-											<div class="spec__input">
-												<input id="checks4" type="checkbox" name="checks4" hidden />
-	        							<label for="checks4">Печать на тесьме <span class="spec__wrap">козырька <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
+											<p><a href="#add-service" class="pseudo modal-inline">Вышивка</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Печать</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Печать на тесьме, закрывающей швы</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Печать на тесьме козырька</a></p>
 										</div><div class="spec__checks">
-											<div class="spec__input">
-												<input id="checks5" type="checkbox" name="checks5" hidden />
-		        						<label for="checks5">Объемный <span class="spec__wrap">кант <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
-											<div class="spec__input">
-	        							<input id="checks6" type="checkbox" name="checks6" hidden />
-	        							<label for="checks6">Гравировка на <span class="spec__wrap">пряжке <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
-											<div class="spec__input">
-	        							<input id="checks7" type="checkbox" name="checks7" hidden />
-	        							<label for="checks7">Жаккардовая <span class="spec__wrap">этикетка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
-											<div class="spec__input">
-	        							<input id="checks8" type="checkbox" name="checks8" hidden />
-	        							<label for="checks8">Индивидуальная <span class="spec__wrap">упаковка <a href="#add-service" class="icon-qstn modal-inline">&nbsp;</a></span></label>
-											</div>
+											<p><a href="#add-service" class="pseudo modal-inline">Объемный кант</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Гравировка на пряжке</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Жаккардовая этикетка</a></p>
+											<p><a href="#add-service" class="pseudo modal-inline">Индивидуальная упаковка</a></p>
 										</div>
 	    						</div>
 	    					</div>
