@@ -32,25 +32,30 @@
   	 $(document).ready(function(){
   	 	var carousel = $(".product-carou__holder");
 	 		$('.product-carou__holder').carouFredSel({
-        width: "100%",
-        height: "auto",
   			responsive: true,
-        scroll: {
-          duration: 450,
-          timeoutDuration: 3500,
-          fx: 'fade'
+  			height: "auto",
+  			auto: false,
+  			items: {
+       	 	start: 1,
+       	},
+	     	scroll: {
+          fx: 'fade',
         },
+        onCreate: function () {
+          $(window).on('resize', function () {
+          	var maxHeight = 0;
+            carousel.find("img").each(function(){
+            	if($(this).height() > maxHeight) maxHeight = $(this).height();
+            });
+            carousel.parent().height(maxHeight);
+          }).trigger('resize');
+			  },
        	pagination: {
 					container: '.product-carou__pager',
 						anchorBuilder: function( nr ) {
 							return '<a href="#" class="thumb' + nr + '"><img src="' + this.src + '" /></a>';
 						}
-				},
-				onCreate: function () {
-			    $(window).on('resize', function () {
-			      carousel.parent().add(carousel).height(carousel.children().first().height());
-			    }).trigger('resize');
-			  }
+				}
       });
       $(".popup__text").mCustomScrollbar({
         scrollInertia: 150
