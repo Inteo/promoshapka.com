@@ -47,9 +47,6 @@
 	     	scroll: {
           fx: 'fade',
         },
-        onCreate: function () {
-        	
-			  },
        	pagination: {
 					container: '.product-carou__pager',
 						anchorBuilder: function( nr ) {
@@ -59,12 +56,9 @@
       });
       var maxHeight = 0;
       carousel.find("img").each(function(){
-      	console.log($(this).height());
       	if($(this).height() > maxHeight) maxHeight = $(this).height();
       });
-      console.log("max - "+maxHeight);
       carousel.height(maxHeight);
-      console.log("carou - "+carousel.height());
       $(".popup__text").mCustomScrollbar({
         scrollInertia: 150
       });
@@ -162,10 +156,10 @@
 	    				<div class="product-carou">
 	    					<div class="product-carou__wrap">
 	    						<div class="product-carou__holder">
-			    					<img src="f/i/product/4.png" alt="">
-			  						<img src="f/i/product/1.png" alt="">
-			  						<img src="f/i/product/2.png" alt="">
-			  						<img src="f/i/product/3.png" alt="">
+			    					<img src="f/i/product/4.png" alt="" style="width: 450px">
+			  						<img src="f/i/product/1.png" alt="" style="width: 450px">
+			  						<img src="f/i/product/2.png" alt="" style="width: 450px">
+			  						<img src="f/i/product/3.png" alt="" style="width: 450px">
 			    				</div>
 	    					</div>
 	    				<div class="product-carou__pager"></div>
