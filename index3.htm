@@ -32,7 +32,9 @@
   	 $(document).ready(function(){
 
   	 	var carousel = $(".product-carou__wrap");
-  	 	
+  	 	carousel.find("img").each(function(){
+      	$.preloadImages($(this).attr("src"));
+      });
 	 		$('.product-carou__holder').carouFredSel({
   			responsive: true,
   			height: "auto",
@@ -57,10 +59,12 @@
       });
       var maxHeight = 0;
       carousel.find("img").each(function(){
-      	$.preloadImages($(this).attr("src"));
+      	console.log($(this).height());
       	if($(this).height() > maxHeight) maxHeight = $(this).height();
       });
+      console.log("max - "+maxHeight);
       carousel.height(maxHeight);
+      console.log("carou - "+carousel.height());
       $(".popup__text").mCustomScrollbar({
         scrollInertia: 150
       });
