@@ -521,6 +521,12 @@ a:hover .icon-inteo {
 	margin: 0 auto;
 	padding: 25px;
 	position: relative;
+	&_narrow {
+		padding: 35px 105px;
+		@media @mobile {
+			padding: 35px;
+		}
+	}
 }
 .header {
 	&__main {
@@ -2128,5 +2134,75 @@ a:hover .icon-inteo {
 	&__title {
 		font: 500 40px/50px 'Roboto', sans-serif;
 		margin-bottom: 70px;
+	}
+}.see-photo-btn {
+	@media @old {
+		font-size: 14px;
+	}
+	& i {
+		@media @old {
+			display: none;
+		}
+	}
+}
+.imged {
+	&__item {
+		margin-bottom: 25px;
+	}
+	&__ico {
+		width: 200px;
+		float: left;
+		margin-right: 40px;
+		@media @tablet {
+			width: 150px;
+		}
+		@media @old {
+			float: none;
+			display: block;
+			width: 100%;
+			margin-bottom: 30px;
+			margin-right: 0;
+		}
+		& img {
+			padding-top: 5px;
+			margin-bottom: 20px;
+			width: 80%;
+			max-width: 160px;
+			@media @old {
+				display: inline-block;
+				vertical-align: middle;
+				width: 50%;
+				padding-top: 0;
+				margin-bottom: 0;
+				padding-right: 20px;
+			}
+		} 
+	}
+	&__info {
+		overflow: hidden;
+	}
+	&__caption {
+		font: 500 30px/40px 'Roboto', sans-serif;
+		color: @red;
+		@media @old {
+			display: inline-block;
+			vertical-align: middle;
+			width: 50%;
+		}
+		& span {
+			font-size: 20px;
+			line-height: 30px;
+			display: block;
+		}
+	}
+	&__title {
+		font: 500 40px/50px 'Roboto', sans-serif;
+		margin-bottom: 30px;
+	}
+	&__text {
+
+		& p {
+			margin-bottom: 30px;
+		}
 	}
 }

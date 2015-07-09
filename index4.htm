@@ -16,14 +16,26 @@
     <script src="f/js/jquery-1.11.3.min.js"></script>
     <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <link rel="stylesheet" href="f/css/bootstrap.min.css">
+    <link rel="stylesheet" href="f/css/fotorama.css">
     <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <script src="f/js/bootstrap.min.js"></script>
     <script src="f/js/packery.pkgd.min.js"></script>
+    <script src="f/js/fotorama.js"></script>
     <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
     <link rel="stylesheet" href="f/css/main.css">
     <script src="f/js/common.js"></script>
     <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <script>
+      $(function () {
+        $(".see-photo-btn").click(function(){
+          var $fotoramaDiv = $('.fotorama').fotorama();
+          var fotorama = $fotoramaDiv.data('fotorama');
+          fotorama.requestFullScreen();
+          return false;
+        });
+      });
+    </script>
   </head>
 
 <body>
@@ -109,7 +121,53 @@
             </div><div class="main-banner__content">
               <p class="main-banner__title">Комплексный <br>пошив одежды</p>
               <p class="main-banner__text">В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
-              <a href="#photo" class="btn modal-inline"><i class="icon-photo"></i>Посмотреть фото производства</a>
+              <a href="#" class="btn modal-inline see-photo-btn"><i class="icon-photo"></i>Посмотреть фото производства</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="imged">
+        <div class="holder holder_narrow">
+          <div class="imged__item">
+            <div class="imged__ico">
+              <img src="f/i/production/1.png" alt=""><p class="imged__caption">3100<span>собственных лекал</span></p>
+            </div><div class="imged__info">
+              <p class="imged__title">Крой</p>
+              <div class="imged__text">
+                <p>В распоряжении «PROMOShapka» имеются все виды машин для кроя – вырубные прессы, дисковые пилы, ленточные и раскройные машины, отрезные линейки, дублирующие прессы. Крупные детали выкраиваются из настилов с помощью ленточных машин, что позволяет существенно экономить время и получать точный крой. Мелкие детали «вырубаются» на специальных вырубных прессах, благодаря чему достигается максимальная точность.</p>
+                <p>В портфолио нашего предприятия – 3100 собственных лекал, кроме того, наши конструкторы готовы изготовить нестандартные лекала по фотографиям или эскизам головного убора.</p>
+                <p>Вся необходимая вышивка, стразы, пайетки, аппликация наносятся именно на крой: это позволяет улучшить качество изображения и в разы увеличить поточность производства. Мы также готовы выполнить для вас только вышивку или аппликацию на вашем крое.</p>
+              </div>
+            </div>
+          </div>
+          <div class="imged__item">
+            <div class="imged__ico">
+              <img src="f/i/production/2.png" alt=""><p class="imged__caption">10 000<span>изделий за смену</span></p>
+            </div><div class="imged__info">
+              <p class="imged__title">Пошив</p>
+              <div class="imged__text">
+                <p>Как и крой, пошив изделий в «PROMOShapka» также поставлен на поток. 400 швейных машин всех видов за смену могут пошить более 10 тысяч изделий. С учетом мирового опыта наше производство организовано по принципу конвейера, что позволяет в несколько раз увеличить скорость пошива и сводит на «нет» процент брака.</p><p>В распоряжении наших пошивочных цехов – только самое современное оборудование: машины челночного стежка, рукавные машины, оборудование для выметывания «глазков» - вентиляционных отверстий, обтяжки и установки пуговиц, металлических блочек и кнопок, петельные автоматы.</p><p>По желанию заказчика наше швейное оборудование способно выполнить любую работу любой степени сложности в любые сроки. Чтобы выполнить срочный заказ, мы готовы увеличить количество часов в рабочей смене или ввести дополнительные смены.</p>
+              </div>
+            </div>
+          </div>
+          <div class="imged__item">
+            <div class="imged__ico">
+              <img src="f/i/production/3.png" alt=""><p class="imged__caption">8 000<span>изделий упаковывается за смену</span></p>
+            </div><div class="imged__info">
+              <p class="imged__title">ОТК и упаковка</p>
+              <div class="imged__text">
+                <p>Вся продукция «PROMOShapka» сертифицирована, у каждого изделия есть принятая стандартами РФ этикетка с артикулом и штрих-кодом. Все изделия нашего предприятия проходят трехступенчатый контроль качества.</p><p>При получении ткани от поставщика мы проверяем её на наличие брака и освобождаем от огрехов. В процессе пошива все изделия тщательно проверяются на соответствие стандарту. Перед закреплением этикетки сотрудник ОТК также проверяет качество изделия, в том числе мелких деталей; кроме того, изделия отпариваются на специальном аппарате, чтобы не возникало помятостей и «заломов».</p><p>За смену мы проверяем и упаковываем более 8 тысяч изделий, однако при необходимости готовы пересмотреть рабочий график отдела и привлечь дополнительных сотрудников, чтобы точно и в срок доставить на склад любой объём продукции.</p>
+              </div>
+            </div>
+          </div>
+          <div class="imged__item">
+            <div class="imged__ico">
+              <img src="f/i/production/4.png" alt=""><p class="imged__caption"><span>Быстрая и надежная доставка</span></p>
+            </div><div class="imged__info">
+              <p class="imged__title">Логистика</p>
+              <div class="imged__text">
+                <p>Точность – вежливость королей. Это про «PROMOShapka», а точнее - про нашу службу логистики. Наличие собственного современного компьютеризированного склада позволяет быстро осуществлять все погрузочно-разгрузочные работы и работать с большим количеством номенклатурных позиций.</p><p>Вы можете забрать заказ прямо со склада в Ярославле. Также мы можем отгрузить товар на склад одного из наших подразделений в Москве и Санкт-Петербурге, откуда вы сможете сами вывезти продукцию в любое удобное для вас время. Либо мы свяжемся с любой транспортной компанией, выбранной заказчиком, которая доставит изделия до вашего офиса в любую точку страны. Мы приветствуем любое сотрудничество и всегда идем навстречу всем пожеланиям клиентов.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -206,9 +264,9 @@
           </div>
           <div class="col-xs-6">
             <input type="text" class="form-control input" id="Company" placeholder="Организация">
-            <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Введите фамилию">
+            <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Организация">
             <span class="icon-ok form-control-feedback"></span>  -->
-            <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Введите фамилию">
+            <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Организация">
             <span class="icon-remove form-control-feedback"></span> -->
           </div>
         </div>
@@ -231,6 +289,13 @@
           </div>
         </div>
       </form>
+    </div>
+  </div>
+  <div class="production-photo">
+    <div id="fotorama" class="fotorama fotorama_captions" data-allowfullscreen="true" data-nav="false" data-fit="contain">
+      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
+      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
+      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
     </div>
   </div>
 </body>
