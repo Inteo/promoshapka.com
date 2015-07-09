@@ -35,6 +35,8 @@
   			responsive: true,
   			height: "auto",
   			auto: false,
+  			item: 1,
+  			width: "100%",
   			items: {
        	 	start: 1,
        	},
@@ -65,7 +67,7 @@
   	$(window).on('scroll', function() {
   		var carousel = $(".product-carou__holder");
   		var top = $(".features__title").offset().top;
-			if($(this).scrollTop() >= top - 50) {
+			if($(this).scrollTop() >= top - 100) {
 				$('.product-carou__holder').trigger('slideTo', 0);
 			}
 		}).trigger('scroll');
