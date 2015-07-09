@@ -59,8 +59,8 @@
 	      carousel.find("img").each(function(){
 	      	if($(this).height() > maxHeight) maxHeight = $(this).height();
 	      });
-	      carousel.height(maxHeight);
 	      carousel.parent().height(maxHeight);
+	      carousel.height(maxHeight);
       }, 500);
       
       $(".popup__text").mCustomScrollbar({
