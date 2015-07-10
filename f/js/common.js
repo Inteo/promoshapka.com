@@ -76,8 +76,12 @@ $(function(){
 		}
 	});
 });
-$.preloadImages = function() {
-  for (var i = 0; i < arguments.length; i++) {
-    $("<img />").attr("src", arguments[i]);
-  }
-}
+$(function(){
+	$(".product-carou a").click(function(){
+		$(this).closest(".product-carou").find("a").removeClass("selected");
+		$(this).addClass("selected");
+		$(this).closest(".product-carou").find(".product-carou__holder img").attr("src", $(this).find("img").attr("src"));
+		return false;
+	});
+});
+

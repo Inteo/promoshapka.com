@@ -1902,33 +1902,26 @@ a:hover .icon-inteo {
 		content: '';
   	display: table;
   }
-  max-width: 450px;
-  margin: 0 auto;
-	&__wrap {
-		margin-bottom: 50px;
-	}
-	&__item {
-		width: 100%;
+	&__holder {
+		max-width: 450px;
+  	margin: 0 auto;
+  	margin-bottom: 50px;
 		& img {
-			height: auto;
 			width: 100%;
 		}
 	}
 	&__pager {
 		@media @small {
-			padding-left: 50px;
 			text-align: left;
 		}
 		@media @tablet {
-			padding-left: 0;
 			text-align: center;
 		} 
 		@media (max-width: 600px){
-			padding-left: 50px;
 			text-align: left;
 		}
 		@media @old {
-			padding-left: 0;
+			text-align: center;
 		}
 		& a {
 			display: inline-block;
@@ -1936,7 +1929,7 @@ a:hover .icon-inteo {
 			margin-left: 15px;
 			position: relative;
 			height: 55px;
-			vertical-align: top;
+			vertical-align: middle;
 			&:hover {
 				color: @grey;
 			}
@@ -1953,51 +1946,6 @@ a:hover .icon-inteo {
 			&.selected:after {
 				opacity: 0;
 			}
-			&.thumb1,
-			&.thumb2 {
-				&:before {
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					content: '';
-					margin: auto 0;
-					pointer-events: none;
-					line-height: 55px;
-					@media @old {
-						left: 0!important;
-						margin-right: 0!important;
-						top: -50px;
-					}
-				}
-			}
-			&.thumb1 {
-				margin-right: 110px;
-				@media @small {
-					display: block;
-					margin-bottom: 20px;
-				}
-				@media @tablet {
-					display: inline-block;
-					margin-bottom: 0;
-				}
-				@media (max-width: 600px) {
-					display: block;
-					margin-bottom: 20px;
-				} 
-				@media @old {
-					margin-bottom: 50px;
-				}
-				&:before {
-					content: 'Схема';
-					left: -65px;
-				}
-			}
-			&.thumb2 {	
-				&:before {
-					content: 'Примеры';
-					left: -85px;
-				}
-			}
 			& img {
 				width: 100%;
 				top: 0;
@@ -2007,6 +1955,47 @@ a:hover .icon-inteo {
 				position: absolute;
 			}
 		}
+	}
+	&__caption {
+		vertical-align: middle;
+		display: inline-block;
+		width: 70px;
+		text-align: right;
+		margin-right: 20px;
+		& + a {
+			margin-left: 0;
+		}
+		@media @old {
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			text-align: center;
+			margin-right: 0;
+		}
+	}
+	&__scheme {
+		margin-right: 30px;
+		display: inline-block;
+		vertical-align: top;
+		& a {
+			margin-left: 0;
+		}
+		@media @small {
+			display: block;
+			margin-bottom: 20px;
+		}
+		@media @tablet {
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		@media (max-width: 600px) {
+			display: block;
+			margin-right: 0;
+		} 
+	}
+	&__samples {
+		display: inline-block;
+		vertical-align: middle;
 	}
 }
 

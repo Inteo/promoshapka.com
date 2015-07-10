@@ -29,42 +29,25 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
-	 	$(document).ready(function(){
-		 	var carousel = $(".product-carou__holder");
-	 		carousel.carouFredSel({
-				responsive: true,
-	      height: "variable",
-	      auto: false,
-	      width: "100%",
-	      items: {
-	        start: 1
-	      },
-	      scroll: {
-	        fx: 'fade',
-	        items: 1
-	      },
-	     	pagination: {
-					container: '.product-carou__pager',
-						anchorBuilder: function( nr ) {
-							return '<a href="#" class="thumb' + nr + '"><img src="' + $(this).find("img").attr("src") + '" /></a>';
-						}
-				}
-	    });   
+	 	$(document).ready(function(){ 
 	    $(".popup__text").mCustomScrollbar({
 	      scrollInertia: 150
 	    });
 	    $(".product-carou").Stickyfill();
 	    var top = $(".features__title").offset().top;
 	    if($(this).scrollTop() >= top - 100) {
-	      $('.product-carou__holder').trigger('slideTo', 0);
+	      $(".product-carou").find("a").removeClass("selected");
+	      $(".product-carou__scheme").find("a").addClass("selected");
+	      $(".product-carou__holder img").attr("src", $(".product-carou__scheme").find("img").attr("src"));
 	    }
 	    $('[data-toggle="popover"]').popover();
   	});
 		$(window).on('scroll', function() {
-			var carousel = $(".product-carou__holder");
 			var top = $(".features__title").offset().top;
 			if($(this).scrollTop() >= top - 100) {
-				$('.product-carou__holder').trigger('slideTo', 0);
+				$(".product-carou").find("a").removeClass("selected");
+	      $(".product-carou__scheme").find("a").addClass("selected");
+	      $(".product-carou__holder img").attr("src", $(".product-carou__scheme").find("img").attr("src"));
 			}
 		});
   </script>
@@ -142,15 +125,16 @@
     			<div class="product__row">
     				<div class="product__img">
 	    				<div class="product-carou">
-	    					<div class="product-carou__wrap">
-	    						<div class="product-carou__holder">
-			    					<div class="product-carou__item"><img src="f/i/product/4.png" alt="" width="487" height="443"></div>
-			  						<div class="product-carou__item"><img src="f/i/product/1.png" alt="" width="490" height="306"></div>
-			  						<div class="product-carou__item"><img src="f/i/product/2.png" alt="" width="887" height="665"></div>
-			  						<div class="product-carou__item"><img src="f/i/product/3.png" alt="" width="955" height="611"></div>
-			    				</div>
-	    					</div>
-	    				<div class="product-carou__pager"></div>
+    						<div class="product-carou__holder">
+		    					<img src="f/i/product/1.png" alt="">
+		    				</div>
+	    				<div class="product-carou__pager">
+	    					<div class="product-carou__scheme"><span class="product-carou__caption">Схема
+	    					</span><a href="#"><img src="f/i/product/4.png" alt="">
+	    					</a></div><div class="product-carou__samples"><span class="product-carou__caption">Примеры</span><a href="#" class="selected"><img src="f/i/product/1.png" alt="">
+	    					</a><a href="#"><img src="f/i/product/2.png" alt="">
+	    					</a><a href="#"><img src="f/i/product/3.png" alt=""></a></div>
+	    				</div>
 	    			</div>
 	    			</div><div class="product__info">
 	    				<ul class="breadcrumbs">
