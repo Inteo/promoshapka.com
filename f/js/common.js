@@ -75,6 +75,12 @@ $(function(){
 			$(".catalog-menu ul").show();
 		}
 	});
+	$(".cart__img").hover(function(){
+		$(this).closest(".cart__item").find(".cart__name a").addClass("pseudo-hover");
+	},
+	function(){
+		$(this).closest(".cart__item").find(".cart__name a").removeClass("pseudo-hover");
+	});
 });
 $(function(){
 	$(".product-carou a").click(function(){

@@ -30,7 +30,7 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
   <script>
 	 	$(document).ready(function(){ 
-	    $(".popup__text").mCustomScrollbar({
+	    $(".form__text").mCustomScrollbar({
 	      scrollInertia: 150
 	    });
 	    $(".product-carou").Stickyfill();
@@ -355,13 +355,13 @@
     </div>
   </footer> 
   <div class="popups">
-    <div class="popup" id="add-to-cart">
-      <p class="popup__title popup__title_bot_0">Бейсболка пятиклинка цветная</p>
-      <p class="popup__subtitle">Артикул <span>ТУ 858-6250-2012</span></p>
+    <div class="form popup" id="add-to-cart">
+      <p class="form__title form__title_bot_0">Бейсболка пятиклинка цветная</p>
+      <p class="form__subtitle">Артикул <span>ТУ 858-6250-2012</span></p>
       <form class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-3">
-            <p class="popup__caption">Ткань</p>
+            <p class="form__caption">Ткань</p>
           </div>
           <div class="col-xs-9">
             <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Хлопок" disabled>
@@ -369,7 +369,7 @@
         </div>
         <div class="form-group">
           <div class="col-xs-3">
-            <p class="popup__caption">Размер</p>
+            <p class="form__caption">Размер</p>
           </div>
           <div class="col-xs-9">
             <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Единый" disabled>
@@ -377,7 +377,7 @@
         </div>
         <div class="form-group">
           <div class="col-xs-3">
-            <p class="popup__caption">Количество</p>
+            <p class="form__caption">Количество</p>
           </div>
           <div class="col-xs-9">
             <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="1" >
@@ -385,7 +385,7 @@
         </div>
         <div class="form-group">
           <div class="col-xs-3">
-            <p class="popup__caption popup__caption__top_0">Дополнительные услуги</p>
+            <p class="form__caption form__caption__top_0">Дополнительные услуги</p>
           </div>
           <div class="col-xs-5">
           	<div>
@@ -427,26 +427,26 @@
         
         <div class="form-group">
         	<div class="col-xs-3">
-            <p class="popup__caption">Комментарии</p>
+            <p class="form__caption">Комментарии</p>
           </div>
           <div class="col-xs-9">
             <textarea rows="3" class="form-control input" id="comments"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <div class="popup__btn">
+          <div class="form__btn">
             <button class="btn" type="submit"><i class="icon-small-cart"></i>Добавить</button>
           </div>
         </div>
       </form>
     </div>
-    <div class="popup" id="add-service">
-    	<div class="popup__img">
+    <div class="form popup" id="add-service">
+    	<div class="form__img">
     		<img src="f/i/add-service.jpg">
-			</div><div class="popup__info">
-				<p class="popup__title">Гравировка</p>
-				<p class="popup__text">Лазерная гравировка — способ нанесения логотипа, при котором создание изображений и надписей на поверхностях производится путём создания борозд в верхнем слое носителя с помощью лазерного луча. В основном, гравировку используют для персонализации изделий из металла, стекла, дерева, текстиля и кожи. Маркировка изделия с помощью лазерной гравировки придаст изделию уникальность и неповторимость.</p>
-				<div class="popup__btn">
+			</div><div class="form__info">
+				<p class="form__title">Гравировка</p>
+				<p class="form__text">Лазерная гравировка — способ нанесения логотипа, при котором создание изображений и надписей на поверхностях производится путём создания борозд в верхнем слое носителя с помощью лазерного луча. В основном, гравировку используют для персонализации изделий из металла, стекла, дерева, текстиля и кожи. Маркировка изделия с помощью лазерной гравировки придаст изделию уникальность и неповторимость.</p>
+				<div class="form__btn">
 					<a href="#" class="btn"><i class="icon-check"></i>Добавить к заказу</a>
 				</div>
 			</div>

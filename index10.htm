@@ -26,16 +26,6 @@
     <script src="f/js/common.js"></script>
     <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
-    <script>
-      $(function () {
-        $(".see-photo-btn").click(function(){
-          var $fotoramaDiv = $('.fotorama').fotorama();
-          var fotorama = $fotoramaDiv.data('fotorama');
-          fotorama.requestFullScreen();
-          return false;
-        });
-      });
-    </script>
   </head>
 
 <body>
@@ -106,70 +96,111 @@
       </div>
     </header>
     <div class="content">
-      <div class="main-banner">
-        <div class="main-banner__wrap">
-          <div class="main-banner__back">
-            <img src="f/i/main-slider/back2.jpg" alt="">
-            <video autoplay="autoplay" loop="loop">
-              <source type="video/mp4" src="f/video/MVI_9165.mp4" />
-              <source type="video/webm" src="f/video/MVI_9165.webm" />
-            </video>
-          </div>
-          <div class="holder main-banner__holder">
-            <div class="main-banner__img">
-              <img src="f/i/main-slider/img2.png" alt="">
-            </div><div class="main-banner__content">
-              <h1 class="main-banner__title">Комплексный <br>пошив одежды</h1>
-              <p class="main-banner__text">В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
-              <a href="#" class="btn modal-inline see-photo-btn"><i class="icon-photo"></i>Посмотреть фото производства</a>
+      <div class="holder holder_narrow">
+        <div class="cart">
+          <h1 class="cart__title">Заявка</h1>
+          <div class="cart__holder">
+            <div class="cart__item">
+              <div class="cart__row">
+                <a href="#" class="cart__img">
+                  <img src="f/i/catalog-img/16.png" alt="">
+                </a><div class="cart__info">
+                  <p class="cart__name"><a href="#">Кепи демисезонное для сотрудников МВД России</a></p>
+                  <div class="cart__col cart__col_small">
+                    <div class="cart__line"><span class="cart__type">Артикул: </span><b>ТУ 858-6114-2010</b></div>
+                    <div class="cart__line"><span class="cart__type">Ткань: </span>хлопок</div>
+                    <div class="cart__line"><span class="cart__type">Размеры: </span>единый</div>
+                  </div><div class="cart__col">
+                    <div class="cart__line"><span class="cart__type">Дополнительные услуги: </span>вышивка, объемный кант, гравюра</div>
+                    <div class="cart__line"><span class="cart__type">Количество: </span>100</div>
+                  </div>
+                </div>
+              </div>
+              <a href="#edit" class="cart__edit modal-inline iconize-pencil">&nbsp;</a>
+              <a href="#" class="cart__remove iconize-big-close">&nbsp;</a>
+            </div>
+            <div class="cart__item">
+              <div class="cart__row">
+                <a href="#" class="cart__img">
+                  <img src="f/i/catalog-img/10.png" alt="">
+                </a><div class="cart__info">
+                  <p class="cart__name"><a href="#">Кепи летнее для сотрудников ДПС ГИБДД МВД России</a></p>
+                  <div class="cart__col cart__col_small">
+                    <div class="cart__line"><span class="cart__type">Артикул: </span><b>ТУ 858-4324-2010</b></div>
+                    <div class="cart__line"><span class="cart__type">Ткань: </span>хлопок</div>
+                    <div class="cart__line"><span class="cart__type">Размеры: </span>единый</div>
+                  </div><div class="cart__col">
+                    <div class="cart__line"><span class="cart__type">Дополнительные услуги: </span>вышивка, объемный кант, гравюра</div>
+                    <div class="cart__line"><span class="cart__type">Количество: </span>100</div>
+                  </div>
+                </div>
+              </div>
+              <a href="#edit" class="cart__edit modal-inline iconize-pencil">&nbsp;</a>
+              <a href="#" class="cart__remove iconize-big-close">&nbsp;</a>
+            </div>
+            <div class="cart__item">
+              <div class="cart__row">
+                <a href="#" class="cart__img">
+                  <img src="f/i/catalog-img/19.png" alt="">
+                </a><div class="cart__info">
+                  <p class="cart__name"><a href="#">Сорочка хлопковая для военнослужащих</a></p>
+                  <div class="cart__col cart__col_small">
+                    <div class="cart__line"><span class="cart__type">Артикул: </span><b>ТУ 858-4324-2010</b></div>
+                    <div class="cart__line"><span class="cart__type">Ткань: </span>хлопок</div>
+                    <div class="cart__line"><span class="cart__type">Размеры: </span>56, 57, 60</div>
+                  </div><div class="cart__col">
+                    <div class="cart__line"><span class="cart__type">Дополнительные услуги: </span>вышивка</div>
+                    <div class="cart__line"><span class="cart__type">Количество: </span>100</div>
+                  </div>
+                </div>
+              </div>
+              <a href="#edit" class="cart__edit modal-inline iconize-pencil">&nbsp;</a>
+              <a href="#" class="cart__remove iconize-big-close">&nbsp;</a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="imged">
-        <div class="holder holder_narrow">
-          <div class="imged__item">
-            <div class="imged__ico">
-              <img src="f/i/production/1.png" alt=""><p class="imged__caption">3100<span>собственных лекал</span></p>
-            </div><div class="imged__info">
-              <p class="imged__title">Крой</p>
-              <div class="imged__text">
-                <p>В распоряжении «PROMOShapka» имеются все виды машин для кроя – вырубные прессы, дисковые пилы, ленточные и раскройные машины, отрезные линейки, дублирующие прессы. Крупные детали выкраиваются из настилов с помощью ленточных машин, что позволяет существенно экономить время и получать точный крой. Мелкие детали «вырубаются» на специальных вырубных прессах, благодаря чему достигается максимальная точность.</p>
-                <p>В портфолио нашего предприятия – 3100 собственных лекал, кроме того, наши конструкторы готовы изготовить нестандартные лекала по фотографиям или эскизам головного убора.</p>
-                <p>Вся необходимая вышивка, стразы, пайетки, аппликация наносятся именно на крой: это позволяет улучшить качество изображения и в разы увеличить поточность производства. Мы также готовы выполнить для вас только вышивку или аппликацию на вашем крое.</p>
+        <div class="form">
+          <p class="form__title">Отправить заявку</p>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-6">
+                <input type="text" class="form-control input" id="Name" placeholder="Ваше имя">
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control input" id="Phone" placeholder="Телефон">
               </div>
             </div>
-          </div>
-          <div class="imged__item">
-            <div class="imged__ico">
-              <img src="f/i/production/2.png" alt=""><p class="imged__caption">10 000<span>изделий за смену</span></p>
-            </div><div class="imged__info">
-              <p class="imged__title">Пошив</p>
-              <div class="imged__text">
-                <p>Как и крой, пошив изделий в «PROMOShapka» также поставлен на поток. 400 швейных машин всех видов за смену могут пошить более 10 тысяч изделий. С учетом мирового опыта наше производство организовано по принципу конвейера, что позволяет в несколько раз увеличить скорость пошива и сводит на «нет» процент брака.</p><p>В распоряжении наших пошивочных цехов – только самое современное оборудование: машины челночного стежка, рукавные машины, оборудование для выметывания «глазков» - вентиляционных отверстий, обтяжки и установки пуговиц, металлических блочек и кнопок, петельные автоматы.</p><p>По желанию заказчика наше швейное оборудование способно выполнить любую работу любой степени сложности в любые сроки. Чтобы выполнить срочный заказ, мы готовы увеличить количество часов в рабочей смене или ввести дополнительные смены.</p>
+            <div class="form-group has-feedback">
+              <div class="col-xs-6">
+                <input type="text" class="form-control input" id="Email" placeholder="Электронная почта">
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control input" id="Company" placeholder="Организация">
+                <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Введите фамилию">
+                <span class="icon-ok form-control-feedback"></span>  -->
+                <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Введите фамилию">
+                <span class="icon-remove form-control-feedback"></span> -->
               </div>
             </div>
-          </div>
-          <div class="imged__item">
-            <div class="imged__ico">
-              <img src="f/i/production/3.png" alt=""><p class="imged__caption">8 000<span>изделий упаковывается за смену</span></p>
-            </div><div class="imged__info">
-              <p class="imged__title">ОТК и упаковка</p>
-              <div class="imged__text">
-                <p>Вся продукция «PROMOShapka» сертифицирована, у каждого изделия есть принятая стандартами РФ этикетка с артикулом и штрих-кодом. Все изделия нашего предприятия проходят трехступенчатый контроль качества.</p><p>При получении ткани от поставщика мы проверяем её на наличие брака и освобождаем от огрехов. В процессе пошива все изделия тщательно проверяются на соответствие стандарту. Перед закреплением этикетки сотрудник ОТК также проверяет качество изделия, в том числе мелких деталей; кроме того, изделия отпариваются на специальном аппарате, чтобы не возникало помятостей и «заломов».</p><p>За смену мы проверяем и упаковываем более 8 тысяч изделий, однако при необходимости готовы пересмотреть рабочий график отдела и привлечь дополнительных сотрудников, чтобы точно и в срок доставить на склад любой объём продукции.</p>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <textarea rows="3" class="form-control input" id="Comments" placeholder="Комментарий к заказу"></textarea>
               </div>
             </div>
-          </div>
-          <div class="imged__item">
-            <div class="imged__ico">
-              <img src="f/i/production/4.png" alt=""><p class="imged__caption"><span>Быстрая и надежная доставка</span></p>
-            </div><div class="imged__info">
-              <p class="imged__title">Логистика</p>
-              <div class="imged__text">
-                <p>Точность – вежливость королей. Это про «PROMOShapka», а точнее - про нашу службу логистики. Наличие собственного современного компьютеризированного склада позволяет быстро осуществлять все погрузочно-разгрузочные работы и работать с большим количеством номенклатурных позиций.</p><p>Вы можете забрать заказ прямо со склада в Ярославле. Также мы можем отгрузить товар на склад одного из наших подразделений в Москве и Санкт-Петербурге, откуда вы сможете сами вывезти продукцию в любое удобное для вас время. Либо мы свяжемся с любой транспортной компанией, выбранной заказчиком, которая доставит изделия до вашего офиса в любую точку страны. Мы приветствуем любое сотрудничество и всегда идем навстречу всем пожеланиям клиентов.</p>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <div class="add">
+                  <a href="#" ><i class="icon-plus"></i>Прикрепить реквизиты</a>
+                </div>
+                <p class="ico-link"><i class="icon-requisition"></i>Реквизиты компании <span>(.doc, 25Кб)</span><a href="#" class="iconize-close ico-link__close"></a></p>
               </div>
             </div>
-          </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <button class="btn" type="submit"><i class="icon-mail"></i>Отправить</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -247,8 +278,8 @@
     </div>
   </footer> 
   <div class="popups">
-    <div class="form popup" id="request">
-      <p class="form__title">Отправить заявку</p>
+    <div class="popup" id="request">
+      <p class="popup__title">Отправить заявку</p>
       <form class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-6">
@@ -284,8 +315,93 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="form__btn">
+          <div class="popup__btn">
             <button class="btn" type="submit"><i class="icon-mail"></i>Отправить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="form popup" id="edit">
+      <p class="form__title form__title_bot_0">Бейсболка пятиклинка цветная</p>
+      <p class="form__subtitle">Артикул <span>ТУ 858-6250-2012</span></p>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="form__caption">Ткань</p>
+          </div>
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Хлопок" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="form__caption">Размер</p>
+          </div>
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="Единый" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="form__caption">Количество</p>
+          </div>
+          <div class="col-xs-9">
+            <input type="text" class="form-control input" id="cloth" placeholder="cloth" value="1" >
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="form__caption form__caption__top_0">Дополнительные услуги</p>
+          </div>
+          <div class="col-xs-5">
+            <div>
+              <input id="checks9" type="checkbox" name="checks9" hidden />
+              <label for="checks9">Вышивка</label>
+            </div>
+            <div>
+              <input id="checks10" type="checkbox" name="checks10" hidden />
+              <label for="checks10">Печать</label>
+            </div>
+            <div>
+              <input id="checks11" type="checkbox" name="checks11" hidden />
+              <label for="checks11">Печать на тесьме, закрывающей швы</label>
+            </div>
+            <div>
+              <input id="checks12" type="checkbox" name="checks12" hidden />
+              <label for="checks12">Печать на тесьме козырька </label>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div>
+              <input id="checks13" type="checkbox" name="checks13" hidden />
+              <label for="checks13">Объемный кант</label>
+            </div>
+            <div>
+              <input id="checks14" type="checkbox" name="checks14" hidden />
+              <label for="checks14">Гравировка на пряжке</label>
+            </div>
+            <div>
+              <input id="checks15" type="checkbox" name="checks15" hidden />
+              <label for="checks15">Жаккардовая этикетка</label>
+            </div>
+            <div>
+              <input id="checks16" type="checkbox" name="checks16" hidden />
+              <label for="checks16">Индивидуальная упаковка </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-xs-3">
+            <p class="form__caption">Комментарии</p>
+          </div>
+          <div class="col-xs-9">
+            <textarea rows="3" class="form-control input" id="comments"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form__btn">
+            <button class="btn" type="submit"><i class="icon-small-cart"></i>Сохранить</button>
           </div>
         </div>
       </form>
