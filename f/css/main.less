@@ -1009,6 +1009,9 @@ a:hover .icon-inteo {
 	@media @mobile {
 		display: none;
 	}
+	&_dark {
+		background: #f1f3f3;
+	}
 	&__holder {
 		padding: 25px 0;
 		text-align: justify;
@@ -1020,6 +1023,18 @@ a:hover .icon-inteo {
 			height: 0;
 			width: 100%;
 		}
+		&_top_40 {
+			padding-top: 40px;
+		}
+	}
+	&_min-top &__holder {
+		padding-top: 0;
+	}
+	&_max-bot &__holder {
+		padding-bottom: 55px;
+	}
+	&_min-bot &__holder {
+		padding-bottom: 0;
 	}
 	&__item {
 		display: inline-block;
@@ -1063,6 +1078,9 @@ a:hover .icon-inteo {
 		@media @tablet {
 			max-width: 32%;
 		}
+	}
+	&_min-top&_vertical &__item {
+		padding-top: 10px;
 	}
 	&_vertical &__num {
 		display: block;
@@ -1156,6 +1174,10 @@ a:hover .icon-inteo {
 			margin-left: -960px; 
 		}
 	}
+	&_dark &__back:after {
+		background: @grey;
+		
+	}
 	&__holder {
 		padding-top: 70px;
 		position: relative;
@@ -1198,8 +1220,9 @@ a:hover .icon-inteo {
 			position: absolute;
 			left: 0;
 			right: 0;
-			top: -20px;
-			margin: 0 auto;
+			top: 0;
+			bottom: 0;
+			margin: auto;
 		}
 		@media @tablet {
 			display: none;
@@ -1237,12 +1260,18 @@ a:hover .icon-inteo {
 			line-height: 35px;
 		}
 	}
+	&_dark &__title {
+		color: #fff;
+	}
 	&__text {
 		margin-bottom: 40px;
 		@media @old {
 			font-size: 14px;
 			line-height: 25px;
 		}
+	}
+	&_dark &__text {
+		color: #fff;
 	}
 }
 .our-product {
@@ -1349,6 +1378,24 @@ a:hover .icon-inteo {
 			width: 33.333333%;
 		}
 	}
+	&_line &__item {
+		@media @mobile {
+			width: 50%;
+		}
+	}
+	&_mini &__item:nth-last-child(2) {
+		@media (max-width: 1500px) {
+			display: none;
+		}
+	}
+	&_mini {
+		@media @old {
+			margin-bottom: 0;
+		}
+	}
+	&_min-bot {
+		margin-bottom: -50px;
+	}
 	&__item {
 		display: inline-block;
 		vertical-align: top;
@@ -1365,7 +1412,25 @@ a:hover .icon-inteo {
 		@media @old {
 			width: 100%;
 		}
-		
+		&_more {
+			@media @old {
+				margin-bottom: -100px;
+			}
+		}
+		&_more .catalog__img {
+			& img {
+				opacity: .15;
+				z-index: -1;
+			}
+			&:before {
+				content: '';
+				width: 1px;
+				height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			text-align: center;
+		}
 		&-content {
 			.transition(background-color, .5s, ease);
 			width: 100%;
@@ -1430,7 +1495,7 @@ a:hover .icon-inteo {
 			background: #e1c8ff;
 		}
 	}
-	  &_main   &__item-content {
+	&_main &__item-content {
 		background: #f1f3f3;;
 	} 
 	&__back {
@@ -1566,6 +1631,15 @@ a:hover .icon-inteo {
 	}
 	a:hover &__season .icon-winter {
 		background-position: -78px -69px;
+	}
+	&__more {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: left;
+		font: 500 30px/40px 'Roboto', sans-serif;
+		& span {
+			color: @red;
+		}
 	}
 }
 .footer {  
@@ -2201,4 +2275,28 @@ a:hover .icon-inteo {
 	top: 0;
 	left: 0;
 	overflow: hidden;
+}
+.subtitle {
+	font: 500 40px/50px 'Roboto', sans-serif;
+	&_small {
+		font: 500 20px/35px 'Roboto', sans-serif;
+	}
+	margin-bottom: 30px;
+}
+.text {
+	margin-bottom: 65px;
+	&_min-bot {
+		margin-bottom: 10px;
+	}
+}
+.why-choice {
+	background: #f1f3f3;
+	padding-top: 30px;
+	& .holder {
+		padding-bottom: 10px;
+		@media @mobile {
+			padding-bottom: 55px;
+			padding-top: 20px;
+		}
+	}
 }
