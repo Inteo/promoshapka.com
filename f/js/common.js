@@ -81,6 +81,10 @@ $(function(){
 	function(){
 		$(this).closest(".cart__item").find(".cart__name a").removeClass("pseudo-hover");
 	});
+	$(".banner__toggle").click(function(){
+		$(this).closest(".banner").find(".banner__hidden").toggleClass("banner__hidden_active");
+		return false;
+	});
 });
 $(function(){
 	$(".product-carou a").click(function(){

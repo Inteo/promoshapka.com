@@ -353,6 +353,9 @@ input[type='radio']:checked + label::before {
 	right: 0;
 	margin: auto; 
 }
+.iconize-big-close_white:before {
+	background-position: 0 -122px;
+}
 .iconize-big-close:hover:before {
 	background-position: -178px 0;
 }
@@ -2145,10 +2148,31 @@ a:hover .icon-inteo {
 		font: 500 40px/50px 'Roboto', sans-serif;
 		margin-bottom: 30px;
 	}
+	&__subtitle {
+		font: 500 20px/35px 'Roboto', sans-serif;
+		margin-bottom: 30px;
+	}
 	&__text {
-
 		& p {
 			margin-bottom: 30px;
+		}
+		& ul {
+			margin-bottom: 30px;
+			padding-left: 20px;
+			list-style: none;
+			& li {
+				position: relative;
+				margin-bottom: 10px;
+				&:before {
+					content: '';
+					background: @red;
+					width: 10px;
+					height: 1px;
+					position: absolute;
+					top: 16px;
+					left: -20px;
+				}
+			}
 		}
 	}
 }
@@ -2366,6 +2390,10 @@ a:hover .icon-inteo {
 		@media @tablet {
 			display: none;
 		}
+		&_vid {
+			text-align: center;
+			padding-top: 100px;
+		}
 	}
 	&__content {
 		display: inline-block;
@@ -2508,9 +2536,58 @@ a:hover .icon-inteo {
 	&_dark &__text {
 		color: #fff;
 	}
+	&__hidden {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: @grey;
+		z-index: 100;
+		text-align: center;
+		&_active {
+			display: block;
+		}
+		& .holder {
+			padding: 0 25px;
+		}
+	}
+	&__close {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		right: 0;
+		top: 0;
+		z-index: 100;
+		background: @grey;
+	}
 }
-
-	
-	
-	
-	
+.video-icon {
+	background: url(../../f/i/video.png);
+	width: 165px;
+	height: 117px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+.video-btn {
+	font: 500 20px/30px 'Roboto', sans-serif;
+	color: @red;
+	display: inline-block;
+	text-align: center;
+	&:focus {
+		color: @red;
+	}
+	@media @tablet {
+		display: none;
+	}
+}
+.video-link {
+	display: none;
+	text-align: center;
+	margin-bottom: 30px;
+	@media @tablet {
+		display: block;
+	}
+}
