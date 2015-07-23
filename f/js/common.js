@@ -11,8 +11,8 @@ function catalog_resize() {
 			$cont.height($width-$leftp-$rightp);
 		}
 		else {
-			if($(this).hasClass("catalog__item_40-20")) {
-			$cont.height($width/2-$leftp-$rightp);
+			if($(this).hasClass("catalog__item_40-20") || ($(this).hasClass("catalog__item_change")) && $(window).width() >= 1400) {
+				$cont.height($width/2-$leftp-$rightp);
 			}
 			else if($(this).hasClass("catalog__item_20-40")){
 				$cont.height($width*2-$rightp);

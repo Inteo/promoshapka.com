@@ -1374,6 +1374,14 @@ a:hover .icon-inteo {
 			line-height: 30px;
 			padding-right: 30%;
 		}
+		&_small&_change {
+			@media (min-width: 1400px) {
+				width: 40%;
+			}
+		}
+		&_small&_change img {
+			min-height: 0;
+		}
 		&_coveralls &-content:hover {
 			background: #d2d9e4;
 		}
@@ -1439,7 +1447,6 @@ a:hover .icon-inteo {
 		bottom: auto;
 		top: 10px;
 	}
-
 	.catalog_main &__img {
 		position: absolute;
 		right: 57%;
@@ -1510,6 +1517,9 @@ a:hover .icon-inteo {
 	.catalog_spec &__item_small &__img img {
 		width: 100%;
 		min-height: 0;
+	}
+	&__item_small&__item_change &__img {
+		width: 50%;
 	}
 	&__title,
 	&__text {
@@ -2585,6 +2595,9 @@ a:hover .icon-inteo {
 	&__btn {
 		margin-right: 30px !important;
 		margin-bottom: 15px !important;
+		@media @old {
+			margin-right: 0 !important;
+		}
 	}
 	&__link {
 		display: inline-block;
