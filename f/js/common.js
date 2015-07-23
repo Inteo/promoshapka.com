@@ -81,8 +81,8 @@ $(function(){
 	function(){
 		$(this).closest(".cart__item").find(".cart__name a").removeClass("pseudo-hover");
 	});
-	$(".banner__toggle").click(function(){
-		$(this).closest(".banner").find(".banner__hidden").toggleClass("banner__hidden_active");
+	$(".heading__toggle").click(function(){
+		$(this).closest(".heading").find(".heading__hidden").toggleClass("heading__hidden_active");
 		return false;
 	});
 });

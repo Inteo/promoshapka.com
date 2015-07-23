@@ -26,20 +26,20 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
     <script>
       $(document).ready(function(){
-        $('.banner__wrap').carouFredSel({
+        $('.heading__wrap').carouFredSel({
           responsive: true,
-          pagination: '.banner__pager',
+          pagination: '.heading__pager',
           width: "100%",
           scroll: {
             duration: 450,
             timeoutDuration: 9000,
             fx: 'fade',
             onAfter: function () {
-              document.querySelector('.banner__back video').play();
+              document.querySelector('.heading__back video').play();
             }
           },
           onCreate: function () {
-            document.querySelector('.banner__back video').play();
+            document.querySelector('.heading__back video').play();
           }
         });
         var carousel = $('.news__holder');
@@ -132,46 +132,46 @@
       </div>
     </header>
     <div class="content">
-      <div class="banner banner_slider banner_main">
-        <div class="banner__wrap">
-           <div class="banner__slide">
-            <div class="banner__back">
+      <div class="heading heading_slider heading_main">
+        <div class="heading__wrap">
+           <div class="heading__slide">
+            <div class="heading__back">
               <img src="f/i/main-slider/back1.jpg" alt="">
               <video autoplay="autoplay" loop="loop">
                 <source type="video/mp4" src="f/video/MVI_9163.mp4" />
                 <source type="video/webm" src="f/video/MVI_9163.webm" />
               </video>
             </div>
-            <div class="holder banner__holder">
-              <div class="banner__img">
+            <div class="holder heading__holder">
+              <div class="heading__img">
                 <img src="f/i/main-slider/img1.png" alt="">
-              </div><div class="banner__content">
-                <p class="banner__title">Персонализация <br> и кастомизация продукции</p>
-                <p class="banner__text">Любая наша продукция может быть модифицирована в соответствии с вашими желаниями и требованиями любым способом (вышивка, гравировка, печать, шелкография, стразы). Выбор способа нанесения зависит от бюджета и вида ткани для нанесения.</p>
+              </div><div class="heading__content">
+                <p class="heading__title">Персонализация <br> и кастомизация продукции</p>
+                <p class="heading__text">Любая наша продукция может быть модифицирована в соответствии с вашими желаниями и требованиями любым способом (вышивка, гравировка, печать, шелкография, стразы). Выбор способа нанесения зависит от бюджета и вида ткани для нанесения.</p>
                 <a href="#request" class="btn modal-inline"><i class="icon-mail"></i>Отправить заявку</a>
               </div>
             </div>
           </div>
-          <div class="banner__slide">
-            <div class="banner__back">
+          <div class="heading__slide">
+            <div class="heading__back">
               <img src="f/i/main-slider/back2.jpg" alt="">
               <video autoplay="autoplay" loop="loop">
                 <source type="video/mp4" src="f/video/MVI_9165.mp4" />
                 <source type="video/webm" src="f/video/MVI_9165.webm" />
               </video>
             </div>
-            <div class="holder banner__holder">
-              <div class="banner__img">
+            <div class="holder heading__holder">
+              <div class="heading__img">
                 <img src="f/i/main-slider/img2.png" alt="">
-              </div><div class="banner__content">
-                <p class="banner__title">Мы осуществляем комплексный <br>пошив одежды</p>
-                <p class="banner__text">В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
+              </div><div class="heading__content">
+                <p class="heading__title">Мы осуществляем комплексный <br>пошив одежды</p>
+                <p class="heading__text">В сжатые сроки наша компания может осуществить пошив полного комплекта одежды (головной убор, верхняя одежда, штаны) сотрудника любого направления с нанесением любой атрибутики и элементов фирменного стиля компании.</p>
                 <a href="#request" class="btn modal-inline"><i class="icon-mail"></i>Отправить заявку</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="banner__pager"></div>
+        <div class="heading__pager"></div>
       </div>
       <div class="achievements">
         <div class="holder">
