@@ -26,9 +26,66 @@
     <script src="f/js/common.js"></script>
     <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&subset=cyrillic" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script>
+      function initialize() {
+        var Pos1 = new google.maps.LatLng(57.589908, 39.876545);
+        var map = new google.maps.Map(document.getElementById("map_canvas1"), {
+          zoom: 18,
+          center: Pos1,
+          mapTypeControl: true,
+          mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+          navigationControl: true,
+          navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var Mark = new google.maps.MarkerImage("f/i/marker1.png",
+          new google.maps.Size(30,50),
+          new google.maps.Point(0,0),
+          new google.maps.Point(0,50)
+        );
+        var Marker1 = new google.maps.Marker({
+          position: Pos1,
+          map: map,
+          icon: Mark,
+          title:"Pos1"
+        });
+
+        var Pos2 = new google.maps.LatLng(57.689908, 39.976545);
+        var map2 = new google.maps.Map(document.getElementById("map_canvas2"), {
+          zoom: 18,
+          center: Pos2,
+          mapTypeControl: true,
+          mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+          navigationControl: true,
+          navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var Marker2 = new google.maps.Marker({
+          position: Pos2,
+          map: map2,
+          icon: Mark,
+          title:"Pos2"
+        });
+      }
+      $(document).ready(function(){
+        $("#myTab a:first").click(function(e){
+          $(".heading__text .tab-pane").removeClass("active in");
+          $(".heading__text .tab-pane:first").addClass("active in");
+          $(".heading__map .tab-pane").removeClass("active in");
+          $(".heading__map .tab-pane:first").addClass("active in");
+        });
+        $("#myTab a:last").click(function(e){
+          $(".heading__text .tab-pane").removeClass("active in");
+          $(".heading__text .tab-pane:last").addClass("active in");
+          $(".heading__map .tab-pane").removeClass("active in");
+          $(".heading__map .tab-pane:last").addClass("active in");
+        });
+      });
+    </script>
   </head>
 
-<body>
+<body onload='initialize()'>
   <div class="wrap clearfix">  
     <header class="header">
       <div class="header__main">
@@ -98,24 +155,124 @@
     <div class="content">
       <div class="heading heading_contacts">
         <div class="heading__wrap">
-          <div class="heading__map">
-            <img src="f/i/temp-map.jpg" alt="">
-          </div>
           <div class="holder heading__holder">
             <div class="heading__content">
               <h1 class="heading__title">Свяжитесь с нами</h1>
+              <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a data-toggle="tab" href="#"><i class="icon-marker"></i>Ярославль</a>
+                </li><li><a data-toggle="tab" href="#"><i class="icon-marker"></i>Москва</a></li>
+              </ul>
               <div class="heading__text">
-                <p>150030, г.Ярославль, ул.Льва Толстого, 26</p>
-                <p>+7 (4852) 44-81-91, +7 (4852) 44-81-62, +7 (920) 110-30-00</p>
-                <p>info@promoshapka.com</p>
+                <div class="tab-pane fade in active">
+                  <p>150030, г.Ярославль, ул.Льва Толстого, 26</p>
+                  <p><span>+7 (4852) 44-81-91,</span> <span>+7 (4852) 44-81-62,</span> +7 (920) 110-30-00</p>
+                  <p><a href="http://info@promoshapka.com">info@promoshapka.com</a></p>
+                </div>
+                <div class="tab-pane fade">
+                  <p>150030, г.Москва, ул.Льва Толстого, 26</p>
+                  <p><span>+7 (4852) 44-81-91,</span> <span>+7 (4852) 44-81-62,</span> +7 (920) 110-30-00</p>
+                  <p><a href="http://info@promoshapka.com">info@promoshapka.com</a></p>
+                </div>
               </div>
-              <a href="#" class="btn modal-inline"><i class="icon-mail"></i>Отправить сообщение</a>
+              <a href="#message" class="btn modal-inline"><i class="icon-mail"></i>Отправить сообщение</a>
+            </div>
+          </div>
+          <div class="heading__map">
+            <div class="tab-pane fade in active">
+              <div id="map_canvas1" class="heading__map-canvas"></div>
+            </div>
+            <div class="tab-pane fade">
+              <div id="map_canvas2" class="heading__map-canvas"></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="contacts">
-        
+      <div class="holder holder_narrow">
+        <div class="contacts">
+          <p class="contacts__title">Отдел продаж</p>
+          <div class="contacts__holder">
+            <div class="contacts__item">
+              <div class="contacts__ico">
+                <i class="icon-phone"></i>
+              </div>
+              <p class="contacts__subtitle">Телефон и факс</p>
+              <div class="contacts__text contacts__text_phone">
+                <p>+7 (4852) 44-81-55/62/70/91,</p>
+                <p>+7 (4852) 58-29-15/16/17/29,</p>
+                <p>+7 (906) 634-76-87,</p>
+                <p>+7 (920) 110-30-00</p>
+              </div>
+            </div><div class="contacts__item">
+              <div class="contacts__ico">
+                <i class="icon-marker icon-marker_red"></i>
+              </div>
+              <p class="contacts__subtitle">Адрес</p>
+              <p class="contacts__text">г. Ярославль, <span>ул. Льва Толстого, 26</span></p>
+            </div><div class="contacts__item">
+              <div class="contacts__ico">
+                <i class="icon-mail"></i>
+              </div>
+              <p class="contacts__subtitle">Электронная почта</p>
+              <p class="contacts__text"><a href="http://info@promoshapka.com">info@promoshapka.com</a></p>
+            </div>
+           </div>
+        </div>
+        <div class="employees">
+          <div class="employees__item">
+            <p class="employees__post">старший менеджер</p>
+            <p class="employees__name">Федорова Юлия</p>
+            <div class="employees__info">
+              <p>+7 (4852) 44-81-91 (доб.122)</p>
+              <p><a href="http://fedorova@promoshapka.com">fedorova@promoshapka.com</a></p>
+            </div>
+          </div><div class="employees__item">
+            <p class="employees__post">менеджер</p>
+            <p class="employees__name">Глушкова Жанна </p>
+            <div class="employees__info">
+              <p>+7 (4852) 44-81-91 (доб.123)</p>
+              <p><a href="http://glushkova@promoshapka.com">glushkova@promoshapka.com</a></p>
+            </div>
+          </div><div class="employees__item">
+            <p class="employees__post">менеджер</p>
+            <p class="employees__name">Бунакова Ольга</p>
+            <div class="employees__info">
+              <p>+7 (4852) 44-81-91 (доб.121)</p>
+              <p><a href="http://bunakova@promoshapka.com">bunakova@promoshapka.com</a></p>
+            </div>
+          </div><div class="employees__item">
+            <p class="employees__post">менеджер</p>
+            <p class="employees__name">Чабаненко Елена</p>
+            <div class="employees__info">
+              <p>+7 (4852) 44-81-91 (доб.124)</p>
+              <p><a href="http://chabanenko@promoshapka.com">chabanenko@promoshapka.com</a></p>
+            </div>
+          </div><div class="employees__item">
+            <p class="employees__post">менеджер</p>
+            <p class="employees__name">Ларина Анна</p>
+            <div class="employees__info">
+              <p>+7 (4852) 44-81-91 (доб.125)</p>
+              <p><a href="http://larina@promoshapka.com">larina@promoshapka.com</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="employees">
+          <p class="employees__title">Руководство</p> 
+          <p class="employees__text">Директору швейной фабрики «Промошапка» Вы можете направить замечания, пожелания и отзывы по работе компании.</p>
+          <div class="employees__item">
+            <p class="employees__post">директор</p>
+            <p class="employees__name">Кузнецов <br>Олег Николаевич</p>
+            <div class="employees__info">
+              <p>+7 (903) 691-15-51</p>
+            </div>
+          </div><div class="employees__item">
+            <p class="employees__post">управляющий фабрики</p>
+            <p class="employees__name">Дутченко <br>Наталья Леонидовна</p>
+            <div class="employees__info">
+              <p>+7 (905) 631-01-90 </p>
+              <p><a href="http://dutchenko@promoshapka.com">dutchenko@promoshapka.com</a></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div> 
@@ -192,40 +349,25 @@
     </div>
   </footer> 
   <div class="popups">
-    <div class="form popup" id="request">
-      <p class="form__title">Отправить заявку</p>
+    <div class="form popup" id="message">
+      <p class="form__title">Отправить сообщение</p>
       <form class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-6">
             <input type="text" class="form-control input" id="Name" placeholder="Ваше имя">
           </div>
           <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Phone" placeholder="Телефон">
+            <input type="text" class="form-control input" id="Company" placeholder="Организация">
           </div>
         </div>
         <div class="form-group has-feedback">
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Email" placeholder="Электронная почта">
-          </div>
-          <div class="col-xs-6">
-            <input type="text" class="form-control input" id="Company" placeholder="Организация">
-            <!-- <input type="text" class="form-control input" id="inputSuccess2" placeholder="Организация">
-            <span class="icon-ok form-control-feedback"></span>  -->
-            <!-- <input type="text" class="form-control input" id="inputError2" placeholder="Организация">
-            <span class="icon-remove form-control-feedback"></span> -->
+          <div class="col-xs-12">
+            <input type="text" class="form-control input" id="theme" placeholder="Тема сообщения">
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <textarea rows="3" class="form-control input" id="Comments" placeholder="Комментарий к заказу"></textarea>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <div class="add">
-              <a href="#" ><i class="icon-plus"></i>Прикрепить реквизиты</a>
-            </div>
-            <p class="ico-link"><i class="icon-requisition"></i>Реквизиты компании <span>(.doc, 25Кб)</span><a href="#" class="iconize-close ico-link__close"></a></p>
+            <textarea rows="3" class="form-control input" id="message" placeholder="Текст сообщения"></textarea>
           </div>
         </div>
         <div class="form-group">
@@ -234,13 +376,6 @@
           </div>
         </div>
       </form>
-    </div>
-  </div>
-  <div class="production-photo">
-    <div id="fotorama" class="fotorama fotorama_captions" data-allowfullscreen="true" data-nav="false" data-fit="contain">
-      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
-      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
-      <img class="production-photo__img" src="f/i/production-photo.jpg" alt="" data-caption="Клепка вентиляционных отверстий">
     </div>
   </div>
 </body>

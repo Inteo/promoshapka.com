@@ -375,6 +375,15 @@ input[type='radio']:checked + label::before {
 .iconize-pencil:hover:before {
 	background-position: -179px -106px;
 }
+.icon-marker {
+	width: 19px;
+	height: 30px;
+	margin: 0 20px 0 0;
+	background-position: -56px -128px;
+	&_red {
+		background-position: -37px -128px;
+	}
+}
 .icon-photo {
 	width: 23px;
 	height: 17px;
@@ -386,6 +395,11 @@ a:hover .icon-photo {
 }
 .ico-link_n-change:hover .icon-photo {
 	background-position: -114px -95px;
+}
+.icon-phone {
+	width: 24px;
+	height: 26px;
+	background-position: -78px -128px;
 }
 .icon-qstn {
 	width: 16px;
@@ -2378,9 +2392,22 @@ a:hover .icon-inteo {
 	&_contacts {
 		text-align: right;
 		background: #f5f6f6;
+		margin-bottom: 40px;
 	}
 	&_contacts &__content {
 		text-align: left;
+		@media (max-width: 1100px) {
+			width: 50%;
+		}
+		@media @tablet {
+			width: 100%;
+			text-align: center;
+		}
+	}
+	&_contacts .nav {
+		@media @mobile {
+			text-align: center;
+		}
 	}
 	&__map {
 		position: absolute;
@@ -2388,6 +2415,27 @@ a:hover .icon-inteo {
 		top: 0;
 		width: 50%;
 		padding-right: 50px;
+		height: 500px;
+		z-index: 10;
+		@media @tablet {
+			position: relative;
+			width: 100%;
+			padding: 0;
+		}
+		&-canvas,
+		.tab-pane {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	&__map .tab-pane {
+		padding-right: 50px;
+		@media @tablet {
+			padding-right: 0;
+		}
+		&.active {
+			padding-right: 0;
+		}
 	}
 	&_bot_0 {
 		margin-bottom: 0;
@@ -2403,6 +2451,12 @@ a:hover .icon-inteo {
 	}
 	&_main &__holder {
 		padding-top: 70px;
+	}
+	&_contacts &__holder {
+		padding-top: 70px;
+		@media @tablet {
+			margin-bottom: 30px;
+		}
 	}
 	&__img {
 		display: inline-block;
@@ -2476,12 +2530,22 @@ a:hover .icon-inteo {
 			line-height: 35px;
 		}
 	}
-
+	&_contacts &__title {
+		font-size: 50px;
+		line-height: 60px;
+		margin-bottom: 35px;
+	}
 	&__text {
 		margin-bottom: 35px;
+		position: relative;
 		@media @old {
 			font-size: 14px;
 			line-height: 25px;
+		}
+	}
+	&_contacts &__text p span {
+		@media @old {
+			display: block;
 		}
 	}
 	&_main &__text {
@@ -2636,5 +2700,154 @@ a:hover .icon-inteo {
 	margin-bottom: 30px;
 	@media @tablet {
 		display: block;
+	}
+}
+.nav {
+	border: none;
+	margin-bottom: 20px;
+	& li {
+		display: inline-block;
+		vertical-align: top;
+		float: none;
+	}
+	& li a {
+		border-radius: 0 !important;
+		border: none !important;
+		background: #fff;
+		font: 700 16px/30px 'Roboto', sans-serif;
+		color: @grey;
+		padding-left: 20px;
+		padding-right: 20px;
+		&:hover {
+			background: #fff;
+		}
+	}
+	& li.active a {
+		background: none !important;
+		color: @red !important;
+		&:hover {
+			background: none;
+			color: @red;
+		}
+		& i {
+			background-position: -37px -128px;
+		}
+	}
+}
+.tab-pane {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	&.active {
+		position: relative;
+		left: auto;
+		z-index: 100;
+	}
+}
+.contacts {
+	margin-bottom: 35px;
+	&__holder {
+		background: #f5f6f6;
+		padding: 40px 40px 10px;
+	}
+	&__title {
+		font: 500 40px/50px 'Roboto', sans-serif;
+		margin-bottom: 35px;
+		@media @old {
+			text-align: center;
+		}
+	}
+	&__subtitle {
+		font: 500 20px/30px 'Roboto', sans-serif;
+		color: @red;
+		margin-bottom: 10px;
+	}
+	&__text {
+		& span {
+			white-space: nowrap;
+			word-wrap: normal;
+		} 
+		&_phone {
+			& p {
+				white-space: nowrap;
+				word-wrap: normal;
+			}
+			@media @old {
+				font-size: 14px;
+			}
+		}
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		padding-right: 20px;
+		width: 33.333333%;
+		margin-bottom: 20px;
+		@media (max-width: 1100px) {
+			width: 50%;
+		}
+		@media @mobile {
+			width: 100%;
+		}
+	}
+	&__ico {
+		height: 45px;
+		&:after {
+			content: '';
+			width: 1px;
+			height: 100%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		& i {
+			vertical-align: middle;
+			margin: 0;
+		}
+	}
+}
+.employees {
+	&__title {
+		font: 500 40px/50px 'Roboto', sans-serif;
+		margin-bottom: 30px;
+		@media @old {
+			text-align: center;
+		}
+	}
+	&__text {
+		margin-bottom: 30px;
+		@media @old {
+			text-align: center;
+		}
+	}
+	&__item {
+		width: 20%;
+		margin-bottom: 60px;
+		display: inline-block;
+		vertical-align: top;
+		@media (max-width: 1400px) {
+			width: 25%;
+		}
+		@media (max-width: 1100px) {
+			width: 33.333333%;
+		}
+		@media (max-width: 950px) {
+			width: 50%;
+		}
+		@media @old {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+	}
+	&__post {
+		font-style: italic;
+		color: @red;
+	}
+	&__name {
+		font: 500 20px/30px 'Roboto', sans-serif;
+		margin-bottom: 10px;
 	}
 }
